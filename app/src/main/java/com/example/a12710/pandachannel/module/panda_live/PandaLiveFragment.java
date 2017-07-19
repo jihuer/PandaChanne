@@ -68,6 +68,7 @@ public class PandaLiveFragment extends BaseFragment  {
         pandaliveTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         pandaliveTab.setupWithViewPager(pandalivePager);
         initPagerData();
+
     }
 
     private void initPagerData() {
