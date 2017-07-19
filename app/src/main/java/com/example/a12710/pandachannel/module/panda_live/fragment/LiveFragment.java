@@ -64,6 +64,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(PandaLiveBean pandaLiveBean) {
+
         Log.e("TAG","=================setResultData==========================");
         Toast.makeText(getActivity(), pandaLiveBean.getLive().get(0).getUrl()+"", Toast.LENGTH_SHORT).show();
         videocontroller1.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
