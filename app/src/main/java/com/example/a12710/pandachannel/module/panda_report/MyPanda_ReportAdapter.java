@@ -1,4 +1,4 @@
-package com.example.a12710.pandachannel.module.panda_live.panda_report;
+package com.example.a12710.pandachannel.module.panda_report;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

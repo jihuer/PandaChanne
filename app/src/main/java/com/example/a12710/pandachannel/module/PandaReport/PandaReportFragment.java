@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
-import com.example.a12710.pandachannel.module.panda_live.panda_report.MyPanda_ReportAdapter;
+import com.example.a12710.pandachannel.module.panda_report.MyPanda_ReportAdapter;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
