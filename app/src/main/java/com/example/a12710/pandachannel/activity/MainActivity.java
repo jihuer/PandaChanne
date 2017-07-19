@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseActivity;
@@ -103,7 +102,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         HideFragment(transaction);
         switch (view.getId()) {
             case R.id.radio_home:
-                Toast.makeText(this, "radio_home", Toast.LENGTH_SHORT).show();
+
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment();
                     transaction.add(R.id.home_fm, homeFragment);
@@ -111,7 +110,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.show(homeFragment);
                 break;
             case R.id.radio_pandachannel:
-                Toast.makeText(this, "radio_pandachannel", Toast.LENGTH_SHORT).show();
+
                 if (liveFragmentnew == null) {
                     liveFragmentnew = new PandaLiveFragment();
                     transaction.add(R.id.home_fm, liveFragmentnew);
@@ -119,7 +118,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.show(liveFragmentnew);
                 break;
             case R.id.radio_rollingvideo:
-                Toast.makeText(this, "radio_rollingvideo", Toast.LENGTH_SHORT).show();
+
                 if (gunGunFragment == null) {
                     gunGunFragment = new GunGunFragment();
                     transaction.add(R.id.home_fm, gunGunFragment);
@@ -127,7 +126,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.show(gunGunFragment);
                 break;
             case R.id.radio_pandabroadcast:
-                Toast.makeText(this, "radio_pandabroadcast", Toast.LENGTH_SHORT).show();
+
                 if (pandaReportFragment == null) {
                     pandaReportFragment = new PandaReportFragment();
                     transaction.add(R.id.home_fm, pandaReportFragment);
@@ -135,7 +134,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 transaction.show(pandaReportFragment);
                 break;
             case R.id.radio_liveinchina:
-                Toast.makeText(this, "radio_liveinchina", Toast.LENGTH_SHORT).show();
+
                 if (liveChinaFragment == null) {
                     liveChinaFragment = new LiveChinaFragment();
                     transaction.add(R.id.home_fm, liveChinaFragment);
