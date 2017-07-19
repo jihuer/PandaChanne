@@ -48,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/hudong_sign"
                 android:visibility="gone"
-
                 />
         </RelativeLayout>
 

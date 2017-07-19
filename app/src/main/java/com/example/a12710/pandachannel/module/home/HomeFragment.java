@@ -44,6 +44,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_pandalive;
+        return R.layout.fragment_gun_gun;
     }
 }

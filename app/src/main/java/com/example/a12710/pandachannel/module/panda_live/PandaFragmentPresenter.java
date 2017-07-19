@@ -2,7 +2,6 @@ package com.example.a12710.pandachannel.module.panda_live;
 
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
-import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
@@ -23,7 +22,7 @@ import com.example.a12710.pandachannel.network.MyCallBack;
             this.mPandaLiveView = pandaLiveView;
             mPandaChannelModelImp = new PandaChannelModelImp();
             //实例化PandaLiveContract中的Presenter的
-            mPandaLiveView.setPresenter(this);
+         //   mPandaLiveView.setPresenter(this);
         }
 
 
