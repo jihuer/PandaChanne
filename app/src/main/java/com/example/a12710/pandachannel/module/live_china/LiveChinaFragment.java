@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 
 /**
  * Created by ASUS on 2017/7/19.
@@ -30,8 +31,11 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_gun_gun;
+        return R.layout.fragment_livechina;
     }
 
+    @Override
+    public void setResultData(LiveChinaBean liveChinaBean) {
 
+    }
 }
