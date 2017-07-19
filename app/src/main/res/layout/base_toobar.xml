@@ -20,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/panda_sign"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -37,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/person_sign"
+
                 />
             <ImageView
                 android:layout_marginRight="10dp"
@@ -45,6 +47,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/hudong_sign"
+                android:visibility="gone"
+
                 />
         </RelativeLayout>
 

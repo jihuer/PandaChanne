@@ -1,6 +1,8 @@
 package com.example.a12710.pandachannel.module.panda_live;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseFragment;
@@ -38,11 +40,12 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_gun_gun;
+        return R.layout.fragment_pandalive;
     }
 
   @Override
   public void setResultData(PandaLiveBean pandaLiveBean) {
-
+    Log.e("TAG","===========setResultData======================");
+    Toast.makeText(getActivity(), pandaLiveBean.toString()+"", Toast.LENGTH_SHORT).show();
   }
 }
