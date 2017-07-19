@@ -22,6 +22,7 @@ public class HomePresenter implements HomeContract.HomePresenter {
         modelImp = new PandaChannelModelImp();
         //实例化
         homeView.setPresenter(this);
+
     }
 
 
