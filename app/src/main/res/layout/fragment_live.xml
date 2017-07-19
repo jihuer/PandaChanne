@@ -6,7 +6,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
         android:id="@+id/videocontroller1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -58,7 +58,8 @@
         </RelativeLayout>
         <cn.carbs.android.expandabletextview.library.ExpandableTextView
             android:id="@+id/etv"
-            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.zhy.android.percent.support.PercentLinearLayout>
     <ScrollView
