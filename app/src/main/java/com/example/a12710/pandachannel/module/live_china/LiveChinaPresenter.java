@@ -24,6 +24,7 @@ public class LiveChinaPresenter implements LiveChinaContract.LiveChinaPresenter 
         mPandaChannelModelImp.getLiveData(new MyCallBack<LiveChinaBean>() {
             @Override
             public void onSuccess(LiveChinaBean liveChinaBean) {
+                mliveChinaView.setResultData(liveChinaBean);
 
             }
 
