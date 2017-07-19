@@ -5,6 +5,6 @@
     <string name="radio_rollingvideo">滚滚视频</string>
     <string name="radio_pandabroadcast">熊猫播报</string>
     <string name="radio_liveinchina">直播中国</string>
-
+    <string name="bt_send">发送</string>
 
 </resources>

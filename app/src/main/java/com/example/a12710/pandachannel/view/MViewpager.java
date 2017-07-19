@@ -10,20 +10,46 @@ import android.view.MotionEvent;
  */
 
 public class MViewpager extends ViewPager {
+    private boolean noScroll = true;
+
     public MViewpager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        // TODO Auto-generated constructor stub
     }
 
-
-
     public MViewpager(Context context) {
-        this(context,null);
+        super(context);
+    }
+
+    public void setNoScroll(boolean noScroll) {
+        this.noScroll = noScroll;
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
+    public void scrollTo(int x, int y) {
+        super.scrollTo(x, y);
+    }
 
-        return false;
+    @Override
+    public boolean onTouchEvent(MotionEvent arg0) {
+		/* return false;//super.onTouchEvent(arg0); */
+        if (noScroll)
+            return false;
+        else
+            return super.onTouchEvent(arg0);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent arg0) {
+        if (noScroll)
+            return false;
+        else
+            return super.onInterceptTouchEvent(arg0);
+    }
+
+    @Override
+    public void setCurrentItem(int item, boolean smoothScroll) {
+        super.setCurrentItem(item, smoothScroll);
     }
 
 }

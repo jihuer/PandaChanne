@@ -56,12 +56,13 @@
                 android:background="@drawable/text_unfolded_hide"
                 />
         </RelativeLayout>
-        <cn.carbs.android.expandabletextview.library.ExpandableTextView
-            android:id="@+id/etv"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </com.zhy.android.percent.support.PercentLinearLayout>
+    <TextView
+        android:id="@+id/etv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -70,13 +71,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.design.widget.TabLayout
+                android:background="@color/home_line"
                 android:id="@+id/tab_live"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_heightPercent="10%w"
                 app:layout_widthPercent="100%w"
                 ></android.support.design.widget.TabLayout>
-            <android.support.v4.view.ViewPager
+            <RelativeLayout
+                android:id="@+id/live_re"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+                <Button
+                    android:id="@+id/bt_livesend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/bt_send"
+                    />
+                <EditText
+                    android:id="@+id/ed_live"
+                    android:layout_toLeftOf="@id/bt_livesend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    />
+            </RelativeLayout>
+            <com.example.a12710.pandachannel.view.MViewpager
                 android:id="@+id/pager_live"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
