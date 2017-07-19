@@ -1,11 +1,12 @@
-package com.example.pandachannel.module.gungun_video;
+package com.example.a12710.pandachannel.module.gungun_video;
 
 import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.pandachannel.R;
-import com.example.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.base.BaseFragment;
+
 
 public class GunGunFragment extends BaseFragment implements GungunContract.gungunlive {
     private GungunContract.gungunlivepresenter gungunlivepresenter;
@@ -25,7 +26,7 @@ public class GunGunFragment extends BaseFragment implements GungunContract.gungu
 
     @Override
     protected void initView(View view) {
-        gungunTitle = (TextView) view.findViewById(R.id.toobar2_title);
+        gungunTitle = (TextView) view.findViewById(R.id.toobar_title);
     }
 
     @Override

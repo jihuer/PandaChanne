@@ -21,7 +21,6 @@ public class Urls {
     public static final String PANDAREPORTTWO = "http://www.ipanda.com/kehuduan/PAGE14503485387528442/index.json";
 
 
-
     //熊猫直播
     public static final String PANDALIVE = BASEURL + "PAGE14501769230331752/index.json";
 

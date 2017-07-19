@@ -1,8 +1,9 @@
-package com.example.pandachannel.module.gungun_video;
+package com.example.a12710.pandachannel.module.gungun_video;
 
-import com.example.pandachannel.model.PandaChannelModelImp;
-import com.example.pandachannel.model.bean.RollRollVideoBean;
-import com.example.pandachannel.network.MyCallBack;
+
+import com.example.a12710.pandachannel.model.PandaChannelModelImp;
+import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
+import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
  * Created by 陆向阳 on 2017/7/18.

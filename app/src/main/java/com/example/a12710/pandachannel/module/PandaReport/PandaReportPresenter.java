@@ -1,8 +1,9 @@
-package com.example.pandachannel.module.PandaReport;
+package com.example.a12710.pandachannel.module.PandaReport;
 
-import com.example.pandachannel.model.PandaChannelModelImp;
-import com.example.pandachannel.model.bean.PandaBroadTwoBean;
-import com.example.pandachannel.network.MyCallBack;
+
+import com.example.a12710.pandachannel.model.PandaChannelModelImp;
+import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
+import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
  * Created by 陆向阳 on 2017/7/19.

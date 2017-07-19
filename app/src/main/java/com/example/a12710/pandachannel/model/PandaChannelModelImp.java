@@ -1,19 +1,20 @@
 package com.example.a12710.pandachannel.model;
 
-import com.example.myapplication.constants.Urls;
-import com.example.myapplication.model.bean.BaDaLingBean;
-import com.example.myapplication.model.bean.HomeDataBean;
-import com.example.myapplication.model.bean.HomeVideoBean;
-import com.example.myapplication.model.bean.LiveChinaBean;
-import com.example.myapplication.model.bean.MultiBean;
-import com.example.myapplication.model.bean.OriginalBean;
-import com.example.myapplication.model.bean.PandaBroadBean;
-import com.example.myapplication.model.bean.PandaBroadTwoBean;
-import com.example.myapplication.model.bean.RollRollVideoBean;
-import com.example.myapplication.model.bean.WinderfulBean;
-import com.example.myapplication.network.HttpFactory;
-import com.example.myapplication.network.IHttp;
-import com.example.myapplication.network.MyCallBack;
+
+import com.example.a12710.pandachannel.constants.Urls;
+import com.example.a12710.pandachannel.model.bean.BaDaLingBean;
+import com.example.a12710.pandachannel.model.bean.HomeDataBean;
+import com.example.a12710.pandachannel.model.bean.HomeVideoBean;
+import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
+import com.example.a12710.pandachannel.model.bean.MultiBean;
+import com.example.a12710.pandachannel.model.bean.OriginalBean;
+import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
+import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
+import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
+import com.example.a12710.pandachannel.model.bean.WinderfulBean;
+import com.example.a12710.pandachannel.network.HttpFactory;
+import com.example.a12710.pandachannel.network.MyCallBack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,6 +89,15 @@ public class PandaChannelModelImp implements PandaChannelModel {
         pamrams.put("", "");
         pamrams.put("", "");
         HttpFactory.create().get(Urls.ORIGINALNEWS, pamrams, callBack);
+    }
+    /**
+     *
+     * */
+
+    @Override
+    public void getPandaLiveData(MyCallBack<PandaLiveBean> callBack) {
+
+        HttpFactory.create().get(Urls.PANDALIVE, null, callBack);
     }
 
 }

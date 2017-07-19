@@ -1,20 +1,17 @@
 package com.example.a12710.pandachannel.model;
 
-import com.example.myapplication.model.bean.BaDaLingBean;
-import com.example.myapplication.model.bean.HomeDataBean;
-import com.example.myapplication.model.bean.HomeVideoBean;
-import com.example.myapplication.model.bean.LiveChinaBean;
-import com.example.myapplication.model.bean.MultiBean;
-import com.example.myapplication.model.bean.OriginalBean;
-import com.example.myapplication.model.bean.PandaBroadBean;
-import com.example.myapplication.model.bean.PandaBroadTwoBean;
-import com.example.myapplication.model.bean.RollRollVideoBean;
-import com.example.myapplication.model.bean.WinderfulBean;
-import com.example.myapplication.network.MyCallBack;
-
-import java.util.Map;
-
-import okhttp3.Callback;
+import com.example.a12710.pandachannel.model.bean.BaDaLingBean;
+import com.example.a12710.pandachannel.model.bean.HomeDataBean;
+import com.example.a12710.pandachannel.model.bean.HomeVideoBean;
+import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
+import com.example.a12710.pandachannel.model.bean.MultiBean;
+import com.example.a12710.pandachannel.model.bean.OriginalBean;
+import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
+import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
+import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
+import com.example.a12710.pandachannel.model.bean.WinderfulBean;
+import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
  * 爱生活，爱代码
@@ -99,4 +96,9 @@ public interface PandaChannelModel {
      * @param callBack
      */
     void getWinderfulData(MyCallBack<WinderfulBean> callBack);
+    /**
+     * 获取熊猫直播数据
+     * @param callBack
+     */
+    void getPandaLiveData(MyCallBack<PandaLiveBean> callBack);
 }

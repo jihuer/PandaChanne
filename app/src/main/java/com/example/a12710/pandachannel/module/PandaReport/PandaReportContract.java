@@ -1,7 +1,8 @@
-package com.example.pandachannel.module.PandaReport;
+package com.example.a12710.pandachannel.module.PandaReport;
 
-import com.example.pandachannel.base.BasePresenter;
-import com.example.pandachannel.base.BaseView;
+
+import com.example.a12710.pandachannel.base.BasePresenter;
+import com.example.a12710.pandachannel.base.BaseView;
 
 /**
  * Created by 陆向阳 on 2017/7/19.

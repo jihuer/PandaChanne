@@ -2,7 +2,8 @@ package com.example.a12710.pandachannel.global;
 
 import android.app.Application;
 
-import com.example.myapplication.base.BaseActivity;
+import com.example.a12710.pandachannel.base.BaseActivity;
+
 
 /**
  * 爱生活，爱代码

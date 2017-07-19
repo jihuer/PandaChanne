@@ -1,9 +1,7 @@
 package com.example.a12710.pandachannel.module.home;
 
-import com.example.myapplication.base.BasePresenter;
-import com.example.myapplication.model.PandaChannelModelImp;
-import com.example.myapplication.model.bean.HomeDataBean;
-import com.example.myapplication.network.MyCallBack;
+
+import com.example.a12710.pandachannel.model.PandaChannelModelImp;
 
 /**
  * 爱生活，爱代码
@@ -28,7 +26,7 @@ public class HomePresenter implements HomeContract.HomePresenter {
     @Override
     public void start() {
         //处理相关业务逻辑
-        modelImp.getHomeData(new MyCallBack<HomeDataBean>() {
+      /*  modelImp.getHomeData(new MyCallBack<HomeDataBean>() {
             @Override
             public void onSuccess(HomeDataBean homeDataBean) {
                 //P层是桥梁 将Model层获取的数据交给View层更新UI
@@ -39,7 +37,7 @@ public class HomePresenter implements HomeContract.HomePresenter {
             public void onFaile(String msg) {
 
             }
-        });
+        });*/
 
     }
 }

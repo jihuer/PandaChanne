@@ -1,6 +1,7 @@
 package com.example.a12710.pandachannel.network;
 
-import com.example.myapplication.global.MyApp;
+
+import com.example.a12710.pandachannel.global.MyApp;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -14,7 +15,6 @@ import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -42,13 +42,18 @@ public class HttpUtils implements IHttp {
     @Override
     public <T> void get(String url, Map<String, String> params, final MyCallBack<T> callBack) {
         StringBuffer sb = new StringBuffer(url);
-        sb.append("?");
-        Set<String> set = params.keySet();
-        for (String key : set) {
-            String value = params.get(key);
-            sb.append(key).append("=").append(value).append("&");
+
+        if (params!=null){
+            sb.append("?");
+            Set<String> set = params.keySet();
+            for (String key : set) {
+                String value = params.get(key);
+                sb.append(key).append("=").append(value).append("&");
+            }
+            url = sb.deleteCharAt(sb.length() - 1).toString();
         }
-        url = sb.deleteCharAt(sb.length() - 1).toString();
+
+
         Request request = new Request.Builder().url(url).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override

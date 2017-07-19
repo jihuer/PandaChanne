@@ -2,8 +2,10 @@ package com.example.a12710.pandachannel.module.panda_live;
 
 import android.view.View;
 
-import com.example.myapplication.base.BaseFragment;
-import com.example.myapplication.module.home.HomeContract;
+import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+
 
 /**
  * 爱生活，爱代码
@@ -25,6 +27,7 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     protected void initData() {
+      mPandaLivPresenter = new PandaFragmentPresenter(this);
         mPandaLivPresenter.start();
     }
 
@@ -35,6 +38,11 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     public int getFragmentLayoutId() {
-        return 0;
+        return R.layout.fragment_gun_gun;
     }
+
+  @Override
+  public void setResultData(PandaLiveBean pandaLiveBean) {
+
+  }
 }

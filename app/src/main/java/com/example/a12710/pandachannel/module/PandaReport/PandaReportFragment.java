@@ -1,8 +1,9 @@
-package com.example.pandachannel.module.PandaReport;
+package com.example.a12710.pandachannel.module.PandaReport;
 
 import android.view.View;
 
-import com.example.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.base.BaseFragment;
 
 
 public class PandaReportFragment extends BaseFragment implements PandaReportContract.PandaReportView{
@@ -13,6 +14,7 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
     }
     @Override
     protected void initData() {
+        pandaReportPresenter = new PandaReportPresenter(this);
         pandaReportPresenter.start();
     }
 
@@ -23,7 +25,7 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
 
     @Override
     public int getFragmentLayoutId() {
-        return 0;
+        return R.layout.fragment_gun_gun;
     }
 
 

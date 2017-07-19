@@ -1,10 +1,10 @@
 package com.example.a12710.pandachannel.base;
 
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.myapplication.global.MyApp;
+import com.example.a12710.pandachannel.global.MyApp;
 
 import butterknife.ButterKnife;
 

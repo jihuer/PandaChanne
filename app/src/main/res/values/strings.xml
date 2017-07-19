@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">PandaChannel</string>
+    <string name="app_name">熊猫频道</string>
+    <string name="radio_home">首页</string>
+    <string name="radio_pandachannel">熊猫直播</string>
+    <string name="radio_rollingvideo">滚滚视频</string>
+    <string name="radio_pandabroadcast">熊猫播报</string>
+    <string name="radio_liveinchina">直播中国</string>
+
+
 </resources>

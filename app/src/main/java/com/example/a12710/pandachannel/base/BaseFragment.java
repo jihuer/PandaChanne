@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.base;
 
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

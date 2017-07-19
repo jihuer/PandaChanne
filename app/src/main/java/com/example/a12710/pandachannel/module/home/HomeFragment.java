@@ -2,8 +2,10 @@ package com.example.a12710.pandachannel.module.home;
 
 import android.view.View;
 
-import com.example.myapplication.base.BaseFragment;
-import com.example.myapplication.model.bean.HomeDataBean;
+import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.model.bean.HomeDataBean;
+
 
 /**
  * 爱生活，爱代码
@@ -31,6 +33,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
     @Override
     protected void initData() {
         //通过P层处理相关业务逻辑
+        mHomePresenter = new HomePresenter(this);
         mHomePresenter.start();
     }
 
@@ -41,6 +44,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
 
     @Override
     public int getFragmentLayoutId() {
-        return 0;
+        return R.layout.fragment_pandalive;
     }
 }

@@ -1,8 +1,9 @@
 package com.example.a12710.pandachannel.module.home;
 
-import com.example.myapplication.base.BasePresenter;
-import com.example.myapplication.base.BaseView;
-import com.example.myapplication.model.bean.HomeDataBean;
+
+import com.example.a12710.pandachannel.base.BasePresenter;
+import com.example.a12710.pandachannel.base.BaseView;
+import com.example.a12710.pandachannel.model.bean.HomeDataBean;
 
 /**
  * 爱生活，爱代码
