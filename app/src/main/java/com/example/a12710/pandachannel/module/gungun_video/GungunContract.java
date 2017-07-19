@@ -11,6 +11,7 @@ import com.example.a12710.pandachannel.base.BaseView;
 public interface GungunContract {
     interface gungunlive extends BaseView<gungunlivepresenter> {
 
+
     }
 
     interface gungunlivepresenter extends BasePresenter {
