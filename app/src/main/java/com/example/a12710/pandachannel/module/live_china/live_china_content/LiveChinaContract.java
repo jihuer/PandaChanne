@@ -16,6 +16,7 @@ public interface LiveChinaContract {
 }
 
 
+
     //Presenter
     interface LiveChinaPresenter extends BasePresenter {
     }
