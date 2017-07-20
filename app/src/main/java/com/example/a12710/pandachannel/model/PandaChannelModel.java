@@ -4,6 +4,7 @@ import com.example.a12710.pandachannel.model.bean.BaDaLingBean;
 import com.example.a12710.pandachannel.model.bean.HomeDataBean;
 import com.example.a12710.pandachannel.model.bean.HomeVideoBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
+import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
 import com.example.a12710.pandachannel.model.bean.MultiBean;
 import com.example.a12710.pandachannel.model.bean.OriginalBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
@@ -43,7 +44,8 @@ public interface PandaChannelModel {
      *
      * @param callBack
      */
-    void getLiveData(MyCallBack<LiveChinaBean> callBack);
+    void getLiveData(String url,MyCallBack<LiveChinaContentBean> callBack);
+    void getLiveTabData(MyCallBack<LiveChinaBean> callBack);
 
 
     /**

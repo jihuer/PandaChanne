@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
+    android:layout_height="wrap_content">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/_no_img"
-        android:scaleType="centerCrop"/>
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/lc_fi_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/_no_img"
+            android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lpanda_pause"/>
+    </RelativeLayout>
+
     <RelativeLayout
         android:background="#fff"
 
@@ -20,13 +31,15 @@
             android:textSize="15dp"
             android:id="@+id/lc_fi_title"/>
         <TextView
+            android:layout_marginLeft="12dp"
             android:layout_below="@id/lc_fi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AAAAAAA"
+            android:text="简介"
             android:textSize="12dp"
             android:textColor="@android:color/darker_gray"/>
         <ImageView
+            android:id="@+id/lc_fi_jiazai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -35,20 +48,29 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/lc_fi_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFF"
         android:orientation="vertical">
 
         <View
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
             android:background="@android:color/darker_gray" />
 
         <TextView
+            android:padding="15dp"
+            android:id="@+id/lc_fi_brief"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="#$%^%$%^" />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#0000"
+        />
 
 </LinearLayout>

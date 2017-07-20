@@ -13,7 +13,6 @@ import com.example.a12710.pandachannel.base.BaseActivity;
 import com.example.a12710.pandachannel.module.PandaReport.PandaReportFragment;
 import com.example.a12710.pandachannel.module.gungun_video.GunGunFragment;
 import com.example.a12710.pandachannel.module.home.HomeFragment;
-import com.example.a12710.pandachannel.module.live_china.LiveChinaFragment;
 import com.example.a12710.pandachannel.module.live_china.LiveChinaFragmentHome;
 import com.example.a12710.pandachannel.module.panda_live.PandaLiveFragment;
 

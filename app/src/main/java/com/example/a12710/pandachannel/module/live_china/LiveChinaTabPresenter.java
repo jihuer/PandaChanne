@@ -2,29 +2,31 @@ package com.example.a12710.pandachannel.module.live_china;
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
 import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
+import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
+import com.example.a12710.pandachannel.module.live_china.live_china_content.LiveChinaContract;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
  * Created by ASUS on 2017/7/19.
  */
 
-public class LiveChinaPresenter implements LiveChinaContract.LiveChinaPresenter {
-    LiveChinaContract.LiveChinaView mliveChinaView;
+public class LiveChinaTabPresenter implements LiveChinaTabContract.LiveChinaTabPresenter {
+    LiveChinaTabContract.LiveChinaTabView mliveChinaTabView;
     PandaChannelModelImp mPandaChannelModelImp;
 
-    public LiveChinaPresenter(LiveChinaContract.LiveChinaView liveChinaView) {
-        this.mliveChinaView = liveChinaView;
+    public LiveChinaTabPresenter(LiveChinaTabContract.LiveChinaTabView liveChinaTabView) {
+        this.mliveChinaTabView = liveChinaTabView;
         mPandaChannelModelImp = new PandaChannelModelImp();
         //实例化PandaLiveContract中的Presenter的
-        mliveChinaView.setPresenter(this);
+        mliveChinaTabView.setPresenter(this);
     }
 
     @Override
     public void start() {
-        mPandaChannelModelImp.getLiveData(new MyCallBack<LiveChinaBean>() {
+        mPandaChannelModelImp.getLiveTabData(new MyCallBack<LiveChinaBean>() {
             @Override
             public void onSuccess(LiveChinaBean liveChinaBean) {
-                mliveChinaView.setResultData(liveChinaBean);
+                mliveChinaTabView.setResultData(liveChinaBean);
 
             }
 
