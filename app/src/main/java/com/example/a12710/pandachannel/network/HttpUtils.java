@@ -52,8 +52,6 @@ public class HttpUtils implements IHttp {
             }
             url = sb.deleteCharAt(sb.length() - 1).toString();
         }
-
-
         Request request = new Request.Builder().url(url).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
