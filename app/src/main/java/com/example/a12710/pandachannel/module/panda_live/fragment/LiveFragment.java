@@ -109,7 +109,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     private void initpageData() {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new multi_angleFragment());
-        fragments.add(new Look_TalkFragment());
+        fragments .add(new Look_TalkFragment());
         List<String> titles = new ArrayList<>();
         titles.add("多视角直播");
         titles.add("边看边聊");
