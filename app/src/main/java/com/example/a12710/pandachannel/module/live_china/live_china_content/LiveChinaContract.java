@@ -15,8 +15,6 @@ public interface LiveChinaContract {
         void setResultData(LiveChinaContentBean LiveChinaContentBean);
 }
 
-
-
     //Presenter
     interface LiveChinaPresenter extends BasePresenter {
     }
