@@ -35,6 +35,7 @@ public class MViewpager extends ViewPager {
 		/* return false;//super.onTouchEvent(arg0); */
         if (noScroll)
             return false;
+
         else
             return super.onTouchEvent(arg0);
     }
