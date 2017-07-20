@@ -1,34 +1,10 @@
 package com.example.a12710.pandachannel.activity;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.example.a12710.pandachannel.Adapter.PlayAdapter;
-import com.example.a12710.pandachannel.Adapter.RecyclerViewAdapter;
-import com.example.a12710.pandachannel.R;
-import com.example.a12710.pandachannel.model.bean.GungunPlayrecycler;
-import com.example.a12710.pandachannel.network.HttpUtils;
-import com.example.a12710.pandachannel.network.MyCallBack;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import io.vov.vitamio.widget.MediaController;
 
 public class GungunPlay extends AppCompatActivity {
 
-    private TextView playtitle;
+  /*  private TextView playtitle;
     private MediaController mediaController;
     private ImageButton jieshaoimage;
     private LinearLayout jieshaoxiangqing;
@@ -164,5 +140,5 @@ public class GungunPlay extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 }

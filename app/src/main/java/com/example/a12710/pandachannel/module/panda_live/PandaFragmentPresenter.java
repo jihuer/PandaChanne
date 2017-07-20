@@ -3,6 +3,7 @@ package com.example.a12710.pandachannel.module.panda_live;
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
@@ -42,6 +43,17 @@ import com.example.a12710.pandachannel.network.MyCallBack;
 
             }
         });
+            mPandaChannelModelImp.getPandaLiveTablist(new MyCallBack<PandaLivetablist>() {
+                @Override
+                public void onSuccess(PandaLivetablist pandaLivetablist) {
+                    mPandaLiveView.setTabList(pandaLivetablist);
+                }
+
+                @Override
+                public void onFaile(String msg) {
+
+                }
+            });
 
     }
 }

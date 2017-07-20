@@ -31,8 +31,8 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
         pandaReportPresenter = new PandaReportPresenter(this);
         pandaReportPresenter.start();
 
-        adapter = new MyPanda_ReportAdapter(getContext(),listBeen);
-        recyclerView.setAdapter(adapter);
+      /*  adapter = new MyPanda_ReportAdapter(getContext(),listBeen);
+        recyclerView.setAdapter(adapter);*/
     }
 
     @Override

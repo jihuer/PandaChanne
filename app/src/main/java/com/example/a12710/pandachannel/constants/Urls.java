@@ -34,5 +34,8 @@ public class Urls {
     public static final String BADALING = BASEURL + "liebiao/badaling/index.json";
     //精彩一刻
     public static final String ORIGINALNEWS = "http://api.cntv.cn/video/videolistById";
-
+    //熊猫直播tab标签
+    public static final String PANDALIVETABLIST = "http://www.ipanda.com/kehuduan/PAGE14501772263221982/index.json";
+    //熊猫直播
+    public static final String PANDALIVEFRAGMENTDATA ="http://api.cntv.cn/video/videolistById";
 }

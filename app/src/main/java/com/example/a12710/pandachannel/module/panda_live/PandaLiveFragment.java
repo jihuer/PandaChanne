@@ -3,6 +3,7 @@ package com.example.a12710.pandachannel.module.panda_live;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.module.panda_live.fragment.LiveFragment;
 import com.example.a12710.pandachannel.view.MViewpager;
 
@@ -32,7 +35,7 @@ import butterknife.Unbinder;
  * 熊猫直播模块的View层  需要通过P层处理逻辑并且获取数据
  */
 
-public class PandaLiveFragment extends BaseFragment  {
+public class PandaLiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
     @BindView(R.id.toobar_logo)
     ImageView toobarLogo;
     @BindView(R.id.toobar_title)
@@ -44,18 +47,10 @@ public class PandaLiveFragment extends BaseFragment  {
     @BindView(R.id.pandalive_pager)
     MViewpager pandalivePager;
     Unbinder unbinder;
-    /*  private TextView toobarTitle;
-        private ImageView toobarSign;
-        private TabLayout pandalive_tab;
-        private ViewPager viewPager;*/
-
-
-
-
-
     @Override
     protected void initData() {
-
+        PandaFragmentPresenter pandaFragmentPresenter = new PandaFragmentPresenter(this);
+        pandaFragmentPresenter.start();
     }
 
     @Override
@@ -72,21 +67,8 @@ public class PandaLiveFragment extends BaseFragment  {
     }
 
     private void initPagerData() {
-        List<Fragment> fragments = new ArrayList<>();
-        List<String> titles = new ArrayList<>();
-        titles.add("直播");
-        titles.add("精彩一刻");
-        titles.add("当熊不让");
-        titles.add("超萌滚滚秀");
-        titles.add("熊猫档案");
-        titles.add("熊猫TOP榜");
-        titles.add("熊猫那些事");
-        titles.add("特别节目");
-        titles.add("原创新闻");
-        fragments.add(new LiveFragment());
-        fragments.add(new LiveFragment());
-        MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(),fragments,titles);
-        pandalivePager.setAdapter(pagerAdapter);
+        PandaFragmentPresenter pandaFragmentPresenter = new PandaFragmentPresenter(this);
+        pandaFragmentPresenter.start();
     }
 
     @Override
@@ -108,5 +90,36 @@ public class PandaLiveFragment extends BaseFragment  {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void setPresenter(PandaLiveContract.PandaLivePresenter pandaLivePresenter) {
+
+    }
+
+    @Override
+    public void setResultData(PandaLiveBean pandaLiveBean) {
+
+    }
+
+    @Override
+    public void setTabList(PandaLivetablist pandaLivetablist) {
+        Log.e("TAG","================setTabList=======================");
+        List<Fragment> fragments = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
+        fragments.add(new LiveFragment());
+        for (int i = 0; i < pandaLivetablist.getTablist().size(); i++) {
+            titles.add(pandaLivetablist.getTablist().get(i).getTitle());
+            if (i>0){
+                Bundle bundle = new Bundle();
+                bundle.putString("vsid",pandaLivetablist.getTablist().get(i).getId());
+                PandaLiveBaseFragment pandaLiveBaseFragment = new PandaLiveBaseFragment();
+                pandaLiveBaseFragment.setArguments(bundle);
+                fragments.add(pandaLiveBaseFragment);
+            }
+        }
+
+        MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(),fragments,titles);
+        pandalivePager.setAdapter(pagerAdapter);
     }
 }

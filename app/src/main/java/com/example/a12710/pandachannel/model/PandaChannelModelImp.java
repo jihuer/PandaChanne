@@ -11,7 +11,9 @@ import com.example.a12710.pandachannel.model.bean.MultiBean;
 import com.example.a12710.pandachannel.model.bean.OriginalBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
+import com.example.a12710.pandachannel.model.bean.PandaFragmentData;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
 import com.example.a12710.pandachannel.model.bean.WinderfulBean;
 import com.example.a12710.pandachannel.network.HttpFactory;
@@ -103,6 +105,18 @@ public class PandaChannelModelImp implements PandaChannelModel {
     @Override
     public void getPandaLiveData(MyCallBack<PandaLiveBean> callBack) {
         HttpFactory.create().get(Urls.PANDALIVE, null, callBack);
+    }
+
+    @Override
+    public void getPandaLivefragmentData(Map<String, String> map, MyCallBack<PandaFragmentData> callBack) {
+        HttpFactory.create().get(Urls.PANDALIVEFRAGMENTDATA, map, callBack);
+    }
+
+
+
+    @Override
+    public void getPandaLiveTablist(MyCallBack<PandaLivetablist> callBack) {
+        HttpFactory.create().get(Urls.PANDALIVETABLIST, null, callBack);
     }
 
 

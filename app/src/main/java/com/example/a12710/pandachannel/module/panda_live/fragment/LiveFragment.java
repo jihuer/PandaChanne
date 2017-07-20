@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +21,7 @@ import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
+import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.module.panda_live.PandaFragmentPresenter;
 import com.example.a12710.pandachannel.module.panda_live.PandaLiveContract;
 import com.example.a12710.pandachannel.module.panda_live.fragment.looktalkfragment.Look_TalkFragment;
@@ -36,6 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+
 
 /**
  * Created by 12710 on 2017/7/19.
@@ -139,6 +140,11 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
                 }
             }
         });
+
+    }
+
+    @Override
+    public void setTabList(PandaLivetablist pandaLivetablist) {
 
     }
 
