@@ -24,6 +24,8 @@ import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
 import com.example.a12710.pandachannel.module.panda_live.PandaFragmentPresenter;
 import com.example.a12710.pandachannel.module.panda_live.PandaLiveContract;
+import com.example.a12710.pandachannel.module.panda_live.fragment.looktalkfragment.Look_TalkFragment;
+import com.example.a12710.pandachannel.module.panda_live.fragment.multi_anglerfragment.multi_angleFragment;
 import com.example.a12710.pandachannel.view.MViewpager;
 
 import java.util.ArrayList;
@@ -106,8 +108,8 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     private void initpageData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new Look_TalkFragment());
         fragments.add(new multi_angleFragment());
+        fragments.add(new Look_TalkFragment());
         List<String> titles = new ArrayList<>();
         titles.add("多视角直播");
         titles.add("边看边聊");
@@ -122,7 +124,6 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        Log.e("TAG", "=================setResultData==========================");
         videocontroller1.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
         Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videocontroller1.thumbImageView);
         tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
@@ -131,9 +132,10 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Toast.makeText(getActivity(), isChecked + "", Toast.LENGTH_SHORT).show();
                 if (isChecked) {
+                    etv.setVisibility(View.VISIBLE);
                     etv.setText(pandaLiveBean.getLive().get(0).getBrief());
                 } else {
-                    etv.setText("");
+                    etv.setVisibility(View.GONE);
                 }
             }
         });

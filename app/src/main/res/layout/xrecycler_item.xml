@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="14%h"
+        app:layout_widthPercent="33%w"
+        >
+<ImageView
+    android:scaleType="fitXY"
+    android:layout_margin="3dp"
+    android:id="@+id/iv_recycler"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_heightPercent="100%h"
+    app:layout_widthPercent="100%w"
+    android:src="@color/colorAccent" />
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_marginLeft="3dp"
+        android:src="@drawable/lpanda_bottom_gra"
+        android:layout_gravity="bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="25%h"
+        app:layout_widthPercent="50%w"
+        />
+        <ImageView
+            android:layout_marginLeft="3dp"
+            android:src="@drawable/lpanda_live_layer"
+            android:layout_gravity="bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="20%h"
+            app:layout_widthPercent="20%w"
+            />
+        <TextView
+            android:layout_gravity="bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="Live"
+            android:textColor="@color/home_line"
+            app:layout_heightPercent="20%h"
+            app:layout_widthPercent="50%w"
+            />
+    </com.zhy.android.percent.support.PercentFrameLayout>
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginLeft="3dp"
+        android:id="@+id/tv_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxEms="7"
+        android:text="小小的人呀，首都机场代收"
+
+        />
+
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -26,7 +26,7 @@
             android:id="@+id/tv_livetitle"
             android:textStyle="bold"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_heightPercent="50%"
@@ -43,6 +43,7 @@
             >
             <TextView
                 android:layout_marginLeft="5dp"
+                android:paddingLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="簡介"
@@ -57,12 +58,6 @@
                 />
         </RelativeLayout>
     </com.zhy.android.percent.support.PercentLinearLayout>
-    <TextView
-        android:id="@+id/etv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -70,14 +65,31 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <TextView
+                android:layout_marginTop="2dp"
+                android:id="@+id/etv"
+                android:paddingTop="30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_widthPercent="100%w"
+                app:layout_heightPercent="40%w"
+                android:background="@color/home_line"
+                />
             <android.support.design.widget.TabLayout
+                android:layout_marginTop="2dp"
                 android:background="@color/home_line"
                 android:id="@+id/tab_live"
+                app:tabSelectedTextColor="@color/colorPrimaryDark"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_heightPercent="10%w"
+                app:layout_heightPercent="13%w"
                 app:layout_widthPercent="100%w"
-                ></android.support.design.widget.TabLayout>
+                />
             <RelativeLayout
                 android:id="@+id/live_re"
                 android:layout_width="match_parent"
@@ -96,15 +108,15 @@
                     android:layout_toLeftOf="@id/bt_livesend"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     />
             </RelativeLayout>
             <com.example.a12710.pandachannel.view.MViewpager
                 android:id="@+id/pager_live"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_heightPercent="90%"
-                app:layout_widthPercent="100%"
+                app:layout_heightPercent="100%w"
+                app:layout_widthPercent="100%w"
+
                 />
         </com.zhy.android.percent.support.PercentLinearLayout>
     </ScrollView>

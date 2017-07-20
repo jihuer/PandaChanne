@@ -102,8 +102,8 @@ public class PandaChannelModelImp implements PandaChannelModel {
 
     @Override
     public void getPandaLiveData(MyCallBack<PandaLiveBean> callBack) {
-
         HttpFactory.create().get(Urls.PANDALIVE, null, callBack);
     }
+
 
 }
