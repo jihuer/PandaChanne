@@ -13,11 +13,7 @@ import com.example.a12710.pandachannel.base.BaseActivity;
 import com.example.a12710.pandachannel.module.PandaReport.PandaReportFragment;
 import com.example.a12710.pandachannel.module.gungun_video.GunGunFragment;
 import com.example.a12710.pandachannel.module.home.HomeFragment;
-<<<<<<< Updated upstream
 import com.example.a12710.pandachannel.module.live_china.LiveChinaFragmentHome;
-=======
-import com.example.a12710.pandachannel.module.live_china.LiveChinaFragment;
->>>>>>> Stashed changes
 import com.example.a12710.pandachannel.module.panda_live.PandaLiveFragment;
 
 import butterknife.BindView;
@@ -39,7 +35,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private PandaLiveFragment liveFragmentnew;
     private GunGunFragment gunGunFragment;
     private PandaReportFragment pandaReportFragment;
-    private LiveChinaFragment liveChinaFragment;
+    private LiveChinaFragmentHome liveChinaFragment;
 
     @Override
     protected void initView() {
@@ -140,7 +136,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.radio_liveinchina:
 
                 if (liveChinaFragment == null) {
-                    liveChinaFragment = new LiveChinaFragment();
+                    liveChinaFragment = new LiveChinaFragmentHome();
                     transaction.add(R.id.home_fm, liveChinaFragment);
                 }
                 transaction.show(liveChinaFragment);

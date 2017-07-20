@@ -23,9 +23,11 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
     XRecyclerView mXRecyclerView;
     LiveChinaAdapter adapter;
 
-    public LiveChinaFragment(String str) {
-        this.url = str;
+
+    public LiveChinaFragment(String url) {
+        this.url = url;
     }
+
 
 
     @Override
@@ -49,6 +51,10 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
     public int getFragmentLayoutId() {
         return R.layout.fragment_livechina_fragment;
     }
+
+
+
+
 
     @Override
     public void setResultData(LiveChinaContentBean liveChinaContentBean) {
