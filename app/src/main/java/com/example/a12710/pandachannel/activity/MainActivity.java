@@ -1,11 +1,8 @@
 package com.example.a12710.pandachannel.activity;
 
-import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import com.example.a12710.pandachannel.R;
@@ -16,9 +13,6 @@ import com.example.a12710.pandachannel.module.home.HomeFragment;
 import com.example.a12710.pandachannel.module.live_china.LiveChinaFragmentHome;
 import com.example.a12710.pandachannel.module.panda_live.PandaLiveFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
@@ -27,10 +21,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     RadioButton radioRollingvideo;
     RadioButton radioPandabroadcast;
     RadioButton radioLiveinchina;
-    @BindView(R.id.home_line)
-    LinearLayout homeLine;
-    @BindView(R.id.home_fm)
-    FrameLayout homeFm;
     private HomeFragment homeFragment;
     private PandaLiveFragment liveFragmentnew;
     private GunGunFragment gunGunFragment;
@@ -66,14 +56,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public int getActivityLayoutId() {
         return R.layout.activity_main;
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
-
 
     private void HideFragment(FragmentTransaction transaction) {
         if (homeFragment != null) {

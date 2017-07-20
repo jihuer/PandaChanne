@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.a12710.pandachannel.activity.GungunVideoPlay">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_heightPercent="15%w"
+        app:layout_widthPercent="100%w">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/personal_back_img" />
+
+        <TextView
+            android:id="@+id/playTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="熊猫"
+            android:textColor="#FFF"
+            android:textSize="20dp" />
+    </android.support.v7.widget.Toolbar>
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/jiecao"
+        ></fm.jiecao.jcvideoplayer_lib.JCVideoPlayer>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="首播时间:"
+            android:textColor="#000"
+            android:textSize="20dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="栏目介绍" />
+
+            <ImageButton
+                android:id="@+id/jieshao"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/lpanda_off" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jieshaoxiangqing"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/gungunplay_jieshao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="高清完整"
+        android:textColor="#000" />
+
+    <View
+        android:layout_alignBottom="@id/textview"
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"></View>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignTop="@+id/view">
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/gungunplay_xrecycler"
+            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+        <ImageButton
+            android:id="@+id/collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center"
+            android:src="@drawable/collect_no" />
+        <ImageButton
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:gravity="center"
+            android:src="@drawable/pe_share_img" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+</com.zhy.android.percent.support.PercentLinearLayout>
