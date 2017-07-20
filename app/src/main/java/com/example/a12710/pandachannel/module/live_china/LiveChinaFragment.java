@@ -13,6 +13,7 @@ import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 public class LiveChinaFragment extends BaseFragment implements LiveChinaContract.LiveChinaView {
     LiveChinaContract.LiveChinaPresenter mLiveChinaPresenter;
 
+
     @Override
     public void setPresenter(LiveChinaContract.LiveChinaPresenter liveChinaPresenter) {
         this.mLiveChinaPresenter = liveChinaPresenter;
@@ -22,16 +23,18 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
     protected void initData() {
         mLiveChinaPresenter = new LiveChinaPresenter(this);
         mLiveChinaPresenter.start();
+
     }
 
     @Override
     protected void initView(View view) {
 
+
     }
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_livechina;
+        return R.layout.fragment_livechina_fragment;
     }
 
     @Override
