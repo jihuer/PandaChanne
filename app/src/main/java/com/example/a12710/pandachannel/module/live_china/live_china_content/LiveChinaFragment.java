@@ -7,7 +7,6 @@ import android.view.View;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.LiveChinaAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
-import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 

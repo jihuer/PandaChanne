@@ -47,6 +47,9 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
         tabLayout = (TabLayout) view.findViewById(R.id.lc_tab);
         add = (ImageView) view.findViewById(R.id.lc_add);
         viewPager = (ViewPager) view.findViewById(R.id.lc_vp);
+        View popupview = View.inflate(getContext(), R.layout.fragment_livechina_add, null);
+
+
     }
 
     @Override
