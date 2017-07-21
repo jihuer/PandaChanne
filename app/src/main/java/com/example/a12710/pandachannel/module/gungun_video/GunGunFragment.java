@@ -2,7 +2,6 @@ package com.example.a12710.pandachannel.module.gungun_video;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.Adapter.RecyclerViewAdapter;
 import com.example.a12710.pandachannel.R;
-import com.example.a12710.pandachannel.activity.GungunPlay;
+import com.example.a12710.pandachannel.activity.JiCaoVideo;
+import com.example.a12710.pandachannel.activity.VideoPlay;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.constants.Urls;
 import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
@@ -80,11 +80,11 @@ public class GunGunFragment extends BaseFragment implements GungunContract.gungu
         adapter.setoClicks(new RecyclerViewAdapter.oClicks() {
             @Override
             public void onclicks(int position) {
-                Intent intent = new Intent(getActivity(), GungunPlay.class);
+                Intent intent = new Intent(getActivity(), VideoPlay.class);
                 intent.putExtra("videourl", list1.get(position).getUrl());
                 intent.putExtra("title", list1.get(position).getTitle());
                 intent.putExtra("image", list1.get(position).getImage());
-                intent.putExtra("provide",list1.get(position).getBrief());
+                intent.putExtra("provide", list1.get(position).getBrief());
                 startActivity(intent);
             }
         });
@@ -99,11 +99,15 @@ public class GunGunFragment extends BaseFragment implements GungunContract.gungu
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse( "http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/17/3d92fae34dc14b2492de15d5dd122ac8_h264200000nero_aac16.mp4");
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                Log.v("URI:::::::::", uri.toString());
-                intent.setDataAndType(uri, "video/mp4");
+                Intent intent = new Intent(getActivity(), JiCaoVideo.class);
+                intent.putExtra("url", "http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/17/3d92fae34dc14b2492de15d5dd122ac8_h264200000nero_aac16.mp4");
                 startActivity(intent);
+
+//                Uri uri = Uri.parse( );
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                Log.v("URI:::::::::", uri.toString());
+//                intent.setDataAndType(uri, "video/mp4");
+//                startActivity(intent);
             }
         });
 
@@ -123,7 +127,7 @@ public class GunGunFragment extends BaseFragment implements GungunContract.gungu
 
             @Override
             public void onLoadMore() {
-                    xrecycler.loadMoreComplete();
+                xrecycler.loadMoreComplete();
             }
 
         });

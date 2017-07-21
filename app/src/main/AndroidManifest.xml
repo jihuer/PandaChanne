@@ -3,6 +3,15 @@
     package="com.example.a12710.pandachannel">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
         android:name=".global.MyApp"
@@ -20,16 +29,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GungunPlay"></activity>
+        <activity android:name=".activity.VideoPlay" />
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
 
-        <activity android:name=".activity.Panda_Report_InfoActivity" />
-        <activity android:name=".activity.personal_info.PersonInfoActivity" />
-        <activity android:name=".activity.personal_info.LoginActivity" />
-        <activity android:name=".activity.personal_info.RegisterActivity" />
-        <activity android:name=".activity.personal_info.SettingActivity" />
-        <activity android:name=".activity.personal_info.ShouCangActivity" />
-        <activity android:name=".activity.personal_info.HistoryActivity"></activity>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59715e07c62dca2cd5000e12"></meta-data>
+
+        <activity
+            android:name=".activity.JiCaoVideo"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

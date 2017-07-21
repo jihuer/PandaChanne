@@ -30,11 +30,12 @@
             android:textColor="#FFF"
             android:textSize="20dp" />
     </android.support.v7.widget.Toolbar>
-    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
         android:id="@+id/jiecao"
-        ></fm.jiecao.jcvideoplayer_lib.JCVideoPlayer>
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -90,63 +91,67 @@
     </LinearLayout>
 
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="高清完整"
-        android:textColor="#000" />
-
-    <View
-        android:layout_alignBottom="@id/textview"
-        android:id="@+id/view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="5dp"></View>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignTop="@+id/view">
+        android:layout_height="match_parent">
 
-        <com.jcodecraeer.xrecyclerview.XRecyclerView
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="高清完整"
+            android:textColor="#000" />
+
+        <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:id="@+id/gungunplay_xrecycler"
-            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+            android:layout_height="0.5dp"
+            android:layout_alignBottom="@id/textview"
+            android:layout_marginTop="5dp"></View>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignTop="@+id/view"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
-        <ImageButton
-            android:id="@+id/collect"
-            android:layout_width="wrap_content"
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/gungunplay_xrecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:gravity="center"
-            android:src="@drawable/collect_no" />
-        <ImageButton
-            android:id="@+id/share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FFF"
-            android:gravity="center"
-            android:src="@drawable/pe_share_img" />
-    </LinearLayout>
+            android:orientation="horizontal">
 
-</RelativeLayout>
+            <ImageButton
+                android:id="@+id/collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:src="@drawable/collect_no" />
+
+            <ImageButton
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:src="@drawable/pe_share_img" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </com.zhy.android.percent.support.PercentLinearLayout>

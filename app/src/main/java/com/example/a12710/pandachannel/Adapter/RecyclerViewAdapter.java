@@ -38,6 +38,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(RecyclerViewAdapter.Viewholder holder, final int position) {
+        RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,RecyclerView.LayoutParams.WRAP_CONTENT);
+
+        holder.itemView.setLayoutParams(layoutParams);
         holder.time.setText(list.get(position).getVideoLength());
         holder.title.setText(list.get(position).getTitle());
         holder.provide.setText(list.get(position).getBrief());
@@ -51,6 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
