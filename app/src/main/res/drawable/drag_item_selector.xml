@@ -6,7 +6,7 @@
     <!-- 激活状态(能点击长按(默认情况下))  实线-->
     <item android:state_enabled="false"
         >
-        <color android:color="#0fff" />
+        <color android:color="#fff" />
 
         <shape
             android:shape="rectangle"
@@ -22,7 +22,8 @@
     
     <!-- 未激活状态  -->
     <item android:state_enabled="true">
-         
+        <color android:color="#fff" />
+
         <shape 
             android:shape="rectangle"
             >

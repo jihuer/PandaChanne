@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
 import com.example.a12710.pandachannel.view.BaseAdapters;
@@ -29,7 +30,11 @@ public class LiveChinaAdapter extends BaseAdapters<LiveChinaContentBean.LiveBean
 
         final ImageView imageView=holder.getView(R.id.lc_fi_image);
         final ImageView jiazai=holder.getView(R.id.lc_fi_jiazai);
-        Glide.with(context).load(liveBean.getImage()).into(imageView);
+        Glide.with(context).load(liveBean.getImage()).asBitmap()
+                .thumbnail(0.05f)//降低分辨率
+                .placeholder(R.drawable._no_img)//未加载是背景图
+                .error(R.color.colorAccent)//图片加载错误是背景图
+                .diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
 
         holder.setViewVisiable(R.id.lc_fi_view, View.GONE);
 

@@ -43,7 +43,7 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
     }
 
     private void initView() {
-        setColumnCount(4);
+        setColumnCount(3);
         setLayoutTransition(new LayoutTransition());
     }
 
@@ -69,7 +69,7 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
     }
 
 
-    private int mMargin = 8;
+    private int mMargin = 10;
 
     // 能否被拖拽的标记
     private boolean mIsDragedAble;
@@ -90,16 +90,16 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
 
         // 设置GridLayout中条目的宽高
         LayoutParams params = new LayoutParams();
-        params.width = getResources().getDisplayMetrics().widthPixels / 4
+        params.width = getResources().getDisplayMetrics().widthPixels / 3
                 - mMargin * 2;
         params.height = LayoutParams.WRAP_CONTENT;
-        params.setMargins(mMargin, 6, mMargin, 6);
+        params.setMargins(mMargin, 8, mMargin, 8);
         tv.setLayoutParams(params);
 
         // 设置条目的背景和条目的内边距
         tv.setBackgroundResource(R.drawable.drag_item_selector);
         tv.setGravity(Gravity.CENTER);
-        tv.setPadding(6, 6, 6, 6);
+        tv.setPadding(10, 10, 10, 10);
 
 
 //        tv.setEnabled(false);
