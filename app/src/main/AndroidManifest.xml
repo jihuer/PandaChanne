@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a12710.pandachannel">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:name=".global.MyApp"
@@ -25,13 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GungunPlay"></activity>
-        <activity android:name="io.vov.vitamio.activity.InitActivity"
-            xmlns:tools="http://schemas.android.com/tools"
-            tools:replace="android:configChanges"
-            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden"
-            android:launchMode="singleTop"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+
     </application>
 
 </manifest>

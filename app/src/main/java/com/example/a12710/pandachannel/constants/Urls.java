@@ -18,7 +18,7 @@ public class Urls {
     //熊猫播报
     public static final String PANDAREPORT = "http://api.cntv.cn/apicommon/index";
     //熊猫播报2
-    public static final String PANDAREPORTTWO = "http://www.ipanda.com/kehuduan/PAGE14503485387528442/index.json";
+    public static final String PANDAREPORTTWO = "http://www.ipanda.com/kehuduan/news/index.json";
 
 
     //熊猫直播

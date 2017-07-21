@@ -60,7 +60,7 @@ public interface PandaChannelModel {
      * @param callBack
      */
     void getPandaBroadData(String path, String primaryId,
-                           String serviceId, MyCallBack<PandaBroadBean> callBack);
+                           String serviceId, String pageSize,String page,MyCallBack<PandaBroadBean> callBack);
 
     /**
      * 熊猫播报2（请求URL中没有参数）
