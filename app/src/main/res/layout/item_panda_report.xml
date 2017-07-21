@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    android:id="@+id/panda_report_item"
+    android:layout_margin="5dp">
 
-    <ImageView
-        android:id="@+id/panda_report_img"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher"
-        />
     <LinearLayout
-        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         >
-
-        <TextView
-            android:id="@+id/panda_report_title"
+        <ImageView
+            android:id="@+id/panda_report_img"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher"
+            />
+        <LinearLayout
+            android:layout_marginLeft="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="我的标题"
-            />
+            android:orientation="vertical"
+            >
 
-        <TextView
-            android:id="@+id/panda_report_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="时间"
-            android:layout_marginTop="60dp"
-            />
+            <TextView
+                android:id="@+id/panda_report_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的标题"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/panda_report_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间"
+                android:layout_marginTop="30dp"
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
+
+    <VideoView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 </LinearLayout>

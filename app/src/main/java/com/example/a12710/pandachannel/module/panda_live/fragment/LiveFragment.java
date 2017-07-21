@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
@@ -35,7 +34,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 
 /**
@@ -44,8 +42,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  */
 
 public class LiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
-    @BindView(R.id.videocontroller1)
-    JCVideoPlayerStandard videocontroller1;
+
     @BindView(R.id.tv_livetitle)
     TextView tvLivetitle;
     @BindView(R.id.checkbox_live)
@@ -125,8 +122,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        videocontroller1.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
-        Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videocontroller1.thumbImageView);
+
         tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
         checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

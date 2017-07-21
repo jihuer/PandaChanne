@@ -22,6 +22,13 @@
         </activity>
         <activity android:name=".activity.GungunPlay"></activity>
 
+        <activity android:name=".activity.Panda_Report_InfoActivity" />
+        <activity android:name=".activity.personal_info.PersonInfoActivity" />
+        <activity android:name=".activity.personal_info.LoginActivity" />
+        <activity android:name=".activity.personal_info.RegisterActivity" />
+        <activity android:name=".activity.personal_info.SettingActivity" />
+        <activity android:name=".activity.personal_info.ShouCangActivity" />
+        <activity android:name=".activity.personal_info.HistoryActivity"></activity>
     </application>
 
 </manifest>

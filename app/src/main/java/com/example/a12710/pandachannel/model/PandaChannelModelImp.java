@@ -52,18 +52,31 @@ public class PandaChannelModelImp implements PandaChannelModel {
         HttpFactory.create().get(Urls.LIVECHINAURL, null, callBack);
     }
 
-
     @Override
+    public void getPandaBroadData(String path, String primaryId, String serviceId, String pageSize, String page, MyCallBack<PandaBroadBean> callBack) {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("path", "iphoneInterface/general/getArticleAndVideoListInfo.json");
+        params.put("primary_id","PAGE1422435191506336");
+        params.put("serviceId", "panda");
+        params.put("pageSize","6");
+        params.put("page","1");
+        HttpFactory.create().get(Urls.PANDAREPORT, params, callBack);
+    }
+
+
+   /* @Override
     public void getPandaBroadData(String path, String primaryId, String serviceId, MyCallBack<PandaBroadBean> callBack) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("path", path);
         params.put("primaryId", primaryId);
         params.put("serviceId", serviceId);
         HttpFactory.create().get(Urls.PANDAREPORT, params, callBack);
-    }
+    }*/
 
     @Override
     public void getPandaBraodData(MyCallBack<PandaBroadTwoBean> callBack) {
+
+
         HttpFactory.create().get(Urls.PANDAREPORTTWO, null, callBack);
     }
 
