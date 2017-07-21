@@ -36,6 +36,7 @@ import butterknife.Unbinder;
  */
 
 public class PandaLiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
+
     @BindView(R.id.toobar_logo)
     ImageView toobarLogo;
     @BindView(R.id.toobar_title)
@@ -74,7 +75,6 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
@@ -101,22 +101,22 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     public void setTabList(PandaLivetablist pandaLivetablist) {
-        Log.e("TAG","================setTabList=======================");
+        Log.e("TAG", "================setTabList=======================");
         List<Fragment> fragments = new ArrayList<>();
         List<String> titles = new ArrayList<>();
         fragments.add(new LiveFragment());
         for (int i = 0; i < pandaLivetablist.getTablist().size(); i++) {
             titles.add(pandaLivetablist.getTablist().get(i).getTitle());
-            if (i>0){
+            if (i > 0) {
                 Bundle bundle = new Bundle();
-                bundle.putString("vsid",pandaLivetablist.getTablist().get(i).getId());
+                bundle.putString("vsid", pandaLivetablist.getTablist().get(i).getId());
                 PandaLiveBaseFragment pandaLiveBaseFragment = new PandaLiveBaseFragment();
                 pandaLiveBaseFragment.setArguments(bundle);
                 fragments.add(pandaLiveBaseFragment);
             }
         }
 
-        MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(),fragments,titles);
+        MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(), fragments, titles);
         pandalivePager.setAdapter(pagerAdapter);
     }
 }
