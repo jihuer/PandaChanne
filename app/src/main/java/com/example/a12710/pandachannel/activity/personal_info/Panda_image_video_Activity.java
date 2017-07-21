@@ -160,5 +160,4 @@ public class Panda_image_video_Activity extends BaseActivity {
         }
         return true;
     }
-
 }
