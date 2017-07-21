@@ -146,7 +146,6 @@ public class Panda_image_video_Activity extends BaseActivity {
             case MotionEvent.ACTION_DOWN:
 
                 if (state){
-
                     top.startAnimation(top_animation_start);
 
                     down.startAnimation(down_animation_start);
