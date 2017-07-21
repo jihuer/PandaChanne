@@ -104,8 +104,6 @@ public class VideoPlay extends AppCompatActivity {
 
             @Override
             public void onLoadMore() {
-                initData();
-                i++;
                 gungunplay_xrecycler.loadMoreComplete();
             }
         });
@@ -242,7 +240,7 @@ public class VideoPlay extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         new ShareAction(VideoPlay.this)
-                                .setPlatform(SHARE_MEDIA.QQ)//传入平台
+                                .setPlatform(SHARE_MEDIA.SINA)//传入平台
                                 .withText("hello")//分享内容
                                 .setCallback(shareListener)//回调监听器
                                 .share();
