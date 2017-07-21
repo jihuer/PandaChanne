@@ -154,7 +154,6 @@ public class Panda_image_video_Activity extends BaseActivity {
                     state = false;
 
                 }else {
-
                     top.startAnimation(top_animation_end);
 
                     down.startAnimation(down_animation_end);
