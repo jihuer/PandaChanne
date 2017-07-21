@@ -5,8 +5,8 @@
     android:background="@color/panda_background"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <io.vov.vitamio.widget.VideoView
-        android:id="@+id/surface_view"
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/videoplayer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_heightPercent="50%w"

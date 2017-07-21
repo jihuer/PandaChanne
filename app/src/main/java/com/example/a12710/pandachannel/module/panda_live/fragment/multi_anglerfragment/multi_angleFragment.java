@@ -1,7 +1,6 @@
 package com.example.a12710.pandachannel.module.panda_live.fragment.multi_anglerfragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.MultiBean;
+import com.example.a12710.pandachannel.view.FullyGridLayoutManager;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -54,7 +54,7 @@ public class multi_angleFragment extends BaseFragment implements MultiAngleContr
     @Override
     public void setResultData(final MultiBean multiBean) {
         Toast.makeText(getActivity(), multiBean.toString()+"", Toast.LENGTH_SHORT).show();
-        lookRecycler.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        lookRecycler.setLayoutManager(new FullyGridLayoutManager(getActivity(),3));
         CommonAdapter commonAdapter = new CommonAdapter<MultiBean.ListBean>(getActivity(),R.layout.xrecycler_item,multiBean.getList()){
             @Override
             protected void convert(ViewHolder holder, MultiBean.ListBean listBean, int position) {

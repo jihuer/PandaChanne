@@ -44,8 +44,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  */
 
 public class LiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
-    @BindView(R.id.videocontroller1)
-    JCVideoPlayerStandard videocontroller1;
+
     @BindView(R.id.tv_livetitle)
     TextView tvLivetitle;
     @BindView(R.id.checkbox_live)
@@ -66,6 +65,8 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     EditText edLive;
     @BindView(R.id.live_re)
     RelativeLayout liveRe;
+    @BindView(R.id.videoplayer)
+    JCVideoPlayerStandard videoplayer;
 
     @Override
     protected void initData() {
@@ -83,10 +84,10 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
         tabLive.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
                     case 0:
                         liveRe.setVisibility(View.GONE);
-                    break;
+                        break;
                     case 1:
                         liveRe.setVisibility(View.VISIBLE);
                         break;
@@ -110,7 +111,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     private void initpageData() {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new multi_angleFragment());
-        fragments .add(new Look_TalkFragment());
+        fragments.add(new Look_TalkFragment());
         List<String> titles = new ArrayList<>();
         titles.add("多视角直播");
         titles.add("边看边聊");
@@ -125,8 +126,8 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        videocontroller1.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
-        Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videocontroller1.thumbImageView);
+        videoplayer.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
+        Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videoplayer.thumbImageView);
         tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
         checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
