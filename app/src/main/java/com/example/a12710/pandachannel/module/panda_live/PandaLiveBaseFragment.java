@@ -47,12 +47,19 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
         lookRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         commonAdapter = new CommonAdapter<PandaFragmentData.VideoBean>(getActivity(), R.layout.gungunitem,list){
             @Override
-            protected void convert(ViewHolder holder, PandaFragmentData.VideoBean videoBean, int position) {
+            protected void convert(ViewHolder holder, PandaFragmentData.VideoBean videoBean, final int position) {
                 holder.setText(R.id.gungunRecyclerTitle,videoBean.getT());
                 holder.setText(R.id.gungunProvide,videoBean.getPtime());
                 holder.setText(R.id.videoTime,videoBean.getLen());
                 ImageView imageView = holder.getView(R.id.gungunrecyclerImage);
                 Glide.with(getActivity()).load(videoBean.getImg()).into(imageView);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String substring = list.get(position).getPtime().substring(0, 10).replace("-", "/");
+                        String url = "http://27.155.108.124/vod.cntv.lxdns.com/flash/mp4video61/TMS/"+substring+"/"+list.get(position).getVid()+"_h264418000nero_aac32.mp4";
+                    }
+                });
             }
         };
         lookRecycler.setAdapter(commonAdapter);
@@ -71,6 +78,7 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
                 lookRecycler.refreshComplete();
             }
         });
+
     }
 
     @Override
@@ -82,14 +90,13 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
     public void setPresenter(PandaLivebasePresenter pandaLivebasePresenter) {
 
     }
-
     @Override
     public void setPandaFragmentData(PandaFragmentData pandaFragmentData) {
        if (pandaFragmentData!=null){
-       list.addAll(pandaFragmentData.getVideo());
-       commonAdapter.notifyDataSetChanged();
-       }
+           list.addAll(pandaFragmentData.getVideo());
+           commonAdapter.notifyDataSetChanged();
 
+       }
     }
 
     @Override
