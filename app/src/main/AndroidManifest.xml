@@ -55,6 +55,8 @@
             android:name=".activity.JiCaoVideo"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="landscape"></activity>
+
+
     </application>
 
 </manifest>
