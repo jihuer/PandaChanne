@@ -35,7 +35,7 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
@@ -49,21 +49,22 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="59715e07c62dca2cd5000e12"></meta-data>
+            android:value="59715e07c62dca2cd5000e12" />
 
         <activity
             android:name=".activity.JiCaoVideo"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="landscape"></activity>
-
-
+            android:screenOrientation="landscape" />
         <activity android:name=".activity.Panda_Report_InfoActivity" />
         <activity android:name=".activity.personal_info.PersonInfoActivity" />
         <activity android:name=".activity.personal_info.LoginActivity" />
         <activity android:name=".activity.personal_info.RegisterActivity" />
         <activity android:name=".activity.personal_info.SettingActivity" />
         <activity android:name=".activity.personal_info.ShouCangActivity" />
-        <activity android:name=".activity.personal_info.HistoryActivity"></activity>
+        <activity android:name=".activity.personal_info.HistoryActivity" />
+        <activity android:name=".activity.personal_info.Panda_image_video_Activity"
+
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

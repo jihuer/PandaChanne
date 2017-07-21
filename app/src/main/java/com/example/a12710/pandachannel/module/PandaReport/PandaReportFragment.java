@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.module.PandaReport;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.activity.personal_info.Panda_image_video_Activity;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
@@ -149,6 +151,14 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
         Glide.with(getActivity()).load(pandaBroadTwoBean.getData().getBigImg().get(0).getImage()).into(iv);
         tv.setText(pandaBroadTwoBean.getData().getBigImg().get(0).getTitle());
         recyclerView.addHeaderView(view1);
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Panda_image_video_Activity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
     }
 
