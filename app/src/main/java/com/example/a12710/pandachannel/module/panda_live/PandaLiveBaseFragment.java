@@ -15,7 +15,9 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
-import butterknife.BindView;
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -24,10 +26,12 @@ import butterknife.Unbinder;
  */
 
 public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebaseContrsct.LivebaseView {
-    @BindView(R.id.look_recycler)
+   // @BindView(R.id.look_recycler)
     XRecyclerView lookRecycler;
     Unbinder unbinder;
     private int p = 1;
+    private List<PandaFragmentData.VideoBean> list = new ArrayList<>();
+    private CommonAdapter commonAdapter;
 
     @Override
     protected void initData() {
@@ -39,7 +43,34 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
 
     @Override
     protected void initView(View view) {
+        lookRecycler = (XRecyclerView) view.findViewById(R.id.look_recycler);
+        lookRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        commonAdapter = new CommonAdapter<PandaFragmentData.VideoBean>(getActivity(), R.layout.gungunitem,list){
+            @Override
+            protected void convert(ViewHolder holder, PandaFragmentData.VideoBean videoBean, int position) {
+                holder.setText(R.id.gungunRecyclerTitle,videoBean.getT());
+                holder.setText(R.id.gungunProvide,videoBean.getPtime());
+                holder.setText(R.id.videoTime,videoBean.getLen());
+                ImageView imageView = holder.getView(R.id.gungunrecyclerImage);
+                Glide.with(getActivity()).load(videoBean.getImg()).into(imageView);
+            }
+        };
+        lookRecycler.setAdapter(commonAdapter);
 
+        lookRecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                lookRecycler.refresh();
+            }
+
+            @Override
+            public void onLoadMore() {
+                lookRecycler.loadMoreComplete();
+                p++;
+                initData();
+                lookRecycler.refreshComplete();
+            }
+        });
     }
 
     @Override
@@ -54,32 +85,11 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
 
     @Override
     public void setPandaFragmentData(PandaFragmentData pandaFragmentData) {
-        lookRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CommonAdapter commonAdapter = new CommonAdapter<PandaFragmentData.VideoBean>(getActivity(),R.layout.gungunitem,pandaFragmentData.getVideo()){
-            @Override
-            protected void convert(ViewHolder holder, PandaFragmentData.VideoBean videoBean, int position) {
-                holder.setText(R.id.gungunRecyclerTitle,videoBean.getT());
-                holder.setText(R.id.gungunProvide,videoBean.getPtime());
-                holder.setText(R.id.videoTime,videoBean.getLen());
-                ImageView imageView = holder.getView(R.id.gungunrecyclerImage);
-                Glide.with(getActivity()).load(videoBean.getImg()).into(imageView);
-            }
-        };
-        lookRecycler.setAdapter(commonAdapter);
-        lookRecycler.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-                lookRecycler.refresh();
-            }
+       if (pandaFragmentData!=null){
+       list.addAll(pandaFragmentData.getVideo());
+       commonAdapter.notifyDataSetChanged();
+       }
 
-            @Override
-            public void onLoadMore() {
-                /*lookRecycler.loadMoreComplete();
-                p++;
-                initData();
-                lookRecycler.refreshComplete();*/
-            }
-        });
     }
 
     @Override

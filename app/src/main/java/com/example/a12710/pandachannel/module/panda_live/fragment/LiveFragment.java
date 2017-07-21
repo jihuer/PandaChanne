@@ -126,22 +126,23 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        videoplayer.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
-        Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videoplayer.thumbImageView);
-        tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
-        checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(getActivity(), isChecked + "", Toast.LENGTH_SHORT).show();
-                if (isChecked) {
-                    etv.setVisibility(View.VISIBLE);
-                    etv.setText(pandaLiveBean.getLive().get(0).getBrief());
-                } else {
-                    etv.setVisibility(View.GONE);
+        if (pandaLiveBean!=null){
+            videoplayer.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
+            Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videoplayer.thumbImageView);
+            tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
+            checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Toast.makeText(getActivity(), isChecked + "", Toast.LENGTH_SHORT).show();
+                    if (isChecked) {
+                        etv.setVisibility(View.VISIBLE);
+                        etv.setText(pandaLiveBean.getLive().get(0).getBrief());
+                    } else {
+                        etv.setVisibility(View.GONE);
+                    }
                 }
-            }
-        });
-
+            });
+        }
     }
 
     @Override
