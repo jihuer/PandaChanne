@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.a12710.pandachannel.global.MyApp;
 
 import butterknife.ButterKnife;
+import io.vov.vitamio.Vitamio;
 
 /**
  * 爱生活，爱代码
@@ -19,6 +20,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Vitamio.isInitialized(getApplicationContext());
+
         setContentView(getActivityLayoutId());
         MyApp.mContext=this;
         ButterKnife.bind(this);

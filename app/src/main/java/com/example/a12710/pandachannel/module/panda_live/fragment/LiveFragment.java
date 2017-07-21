@@ -14,9 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
@@ -34,8 +32,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import io.vov.vitamio.MediaPlayer;
+import io.vov.vitamio.widget.MediaController;
+import io.vov.vitamio.widget.VideoView;
 
 
 /**
@@ -44,8 +43,6 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  */
 
 public class LiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
-    @BindView(R.id.videocontroller1)
-    JCVideoPlayerStandard videocontroller1;
     @BindView(R.id.tv_livetitle)
     TextView tvLivetitle;
     @BindView(R.id.checkbox_live)
@@ -57,8 +54,6 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     @BindView(R.id.pager_live)
     MViewpager pagerLive;
     Unbinder unbinder;
-
-
     PandaLiveContract.PandaLivePresenter mPandaLivPresenter;
     @BindView(R.id.bt_livesend)
     Button btLivesend;
@@ -66,6 +61,9 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     EditText edLive;
     @BindView(R.id.live_re)
     RelativeLayout liveRe;
+    @BindView(R.id.surface_view)
+    VideoView surfaceView;
+    private MediaController mMediaController;
 
     @Override
     protected void initData() {
@@ -83,10 +81,10 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
         tabLive.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
+                switch (tab.getPosition()) {
                     case 0:
                         liveRe.setVisibility(View.GONE);
-                    break;
+                        break;
                     case 1:
                         liveRe.setVisibility(View.VISIBLE);
                         break;
@@ -110,7 +108,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     private void initpageData() {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new multi_angleFragment());
-        fragments .add(new Look_TalkFragment());
+        fragments.add(new Look_TalkFragment());
         List<String> titles = new ArrayList<>();
         titles.add("多视角直播");
         titles.add("边看边聊");
@@ -125,13 +123,24 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
 
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        videocontroller1.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
-        Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videocontroller1.thumbImageView);
+        //pandaLiveBean.getLive().get(0).getUrl()
+        surfaceView.setVideoPath("http://114.236.140.76/vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/17/3d92fae34dc14b2492de15d5dd122ac8_h264200000nero_aac16.mp4?wshc_tag=0&wsts_tag=59716245&wsid_tag=73ab2078&wsiphost=ipdbm");
+        surfaceView.requestFocus();
+        mMediaController = new MediaController(getActivity());//实例化控制器
+        mMediaController.show(5000);//控制器显示5s后自动隐藏
+        surfaceView.setMediaController(mMediaController);//绑定控制器
+        surfaceView.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);//设置播放画质 高画质
+        surfaceView.requestFocus();//取得焦点
+        surfaceView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setPlaybackSpeed(1.0f);
+            }
+        });
         tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
         checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(getActivity(), isChecked + "", Toast.LENGTH_SHORT).show();
                 if (isChecked) {
                     etv.setVisibility(View.VISIBLE);
                     etv.setText(pandaLiveBean.getLive().get(0).getBrief());
@@ -162,11 +171,7 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     }
 
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        JCVideoPlayer.releaseAllVideos();
-    }
+
 
     @Override
     public void onDestroyView() {

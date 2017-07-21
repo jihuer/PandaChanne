@@ -55,10 +55,7 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     protected void initView(View view) {
-        /*toobarTitle = (TextView) view.findViewById(R.id.toobar_title);
-        toobarSign = (ImageView) view.findViewById(R.id.toobar_sign);
-        pandaliveTab = (TabLayout) view.findViewById(R.id.pandalive_tab);
-        pandalivePager = (MViewpager) view.findViewById(R.id.pandalive_pager);*/
+
         toobarTitle.setText("熊猫直播");
         pandaliveTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         pandaliveTab.setupWithViewPager(pandalivePager);
