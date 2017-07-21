@@ -2,7 +2,7 @@ package com.example.a12710.pandachannel.module.PandaReport;
 
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
-import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
+import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
@@ -21,7 +21,7 @@ public class PandaReportPresenter implements PandaReportContract.PandaReportPres
 
     @Override
     public void start() {
-    /*    pandaChannelModelImp.getPandaBraodData(new MyCallBack<PandaBroadTwoBean>() {
+        pandaChannelModelImp.getPandaBraodData(new MyCallBack<PandaBroadTwoBean>() {
             @Override
             public void onSuccess(PandaBroadTwoBean pandaBroadTwoBean) {
                pandaReportView.setResultData(pandaBroadTwoBean);
@@ -32,8 +32,8 @@ public class PandaReportPresenter implements PandaReportContract.PandaReportPres
             public void onFaile(String msg) {
 
             }
-        });*/
-        pandaChannelModelImp.getPandaBroadData("iphoneInterface/general/getArticleAndVideoListInfo.json","PAGE1422435191506336","panda","6","1",new MyCallBack<PandaBroadBean>() {
+        });
+       /* pandaChannelModelImp.getPandaBroadData("iphoneInterface/general/getArticleAndVideoListInfo.json","PAGE1422435191506336","panda","6","1",new MyCallBack<PandaBroadBean>() {
             @Override
             public void onSuccess(PandaBroadBean pandaBroadBean) {
                 pandaReportView.setResultData1(pandaBroadBean);
@@ -43,6 +43,6 @@ public class PandaReportPresenter implements PandaReportContract.PandaReportPres
             public void onFaile(String msg) {
 
             }
-        });
+        });*/
     }
 }

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseActivity;
@@ -13,7 +15,7 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
 
     private ImageView panda_report_back;
     private WebView panda_report_web;
-    private ImageView panda_report_shoucang;
+    private CheckBox panda_report_shoucang;
     private ImageView panda_report_share;
 
     @Override
@@ -21,7 +23,7 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
         panda_report_back = (ImageView) findViewById(R.id.panda_report_back);
         panda_report_web = (WebView) findViewById(R.id.panda_report_web);
         panda_report_share = (ImageView) findViewById(R.id.panda_report_share);
-        panda_report_shoucang = (ImageView) findViewById(R.id.panda_report_shoucang);
+        panda_report_shoucang = (CheckBox) findViewById(R.id.panda_report_shoucang);
 
         panda_report_back.setOnClickListener(this);
         panda_report_share.setOnClickListener(this);
@@ -59,6 +61,11 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
                 finish();
                 break;
             case R.id.panda_report_shoucang:
+                if (panda_report_shoucang.isChecked()){
+                    Toast.makeText(Panda_Report_InfoActivity.this,"已添加，请到[我的收藏]中查看",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Panda_Report_InfoActivity.this,"已取消收藏",Toast.LENGTH_SHORT).show();
+                }
 
                 break;
             case R.id. panda_report_share:
