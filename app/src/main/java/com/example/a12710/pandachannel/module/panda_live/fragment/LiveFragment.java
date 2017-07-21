@@ -118,12 +118,10 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
         MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getChildFragmentManager(), fragments, titles);
         pagerLive.setAdapter(pagerAdapter);
     }
-
     @Override
     public int getFragmentLayoutId() {
         return R.layout.fragment_live;
     }
-
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
         if (pandaLiveBean!=null){
