@@ -24,7 +24,6 @@ public class LiveChinaAdapter extends BaseAdapters<LiveChinaContentBean.LiveBean
     public LiveChinaAdapter(Context context, List<LiveChinaContentBean.LiveBean> datas) {
         super(context, R.layout.fragment_livechina_item, datas);
     }
-
     @Override
     public void convert(final ViewHolder holder, LiveChinaContentBean.LiveBean liveBean) {
         String u = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd"+liveBean.getId()+"&client=androidapp";
