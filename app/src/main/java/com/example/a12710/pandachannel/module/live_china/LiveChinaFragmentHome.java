@@ -110,15 +110,11 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
         list3 = new ArrayList<>();
         chinaBeanList = new ArrayList<>();
         chinaBeanList.addAll(liveChinaBean.getAlllist());
-
         for (int i = 0; i <liveChinaBean.getAlllist().size(); i++) {
             list3.add(liveChinaBean.getAlllist().get(i).getTitle());
         }
 
-
         if (getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("asd","").equals("")){
-
-
             for (int i = 0; i <liveChinaBean.getTablist().size(); i++) {
 
                 fragmentList.add(new LiveChinaFragment(liveChinaBean.getTablist().get(i).getUrl()));
@@ -127,19 +123,7 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
 
         }else {
 
-            Set<String> setlist = new ArraySet<>();
-            setlist.addAll(list3);
-            titleList.clear();
-            Set<String> titleSet = getContext().getSharedPreferences("data", Context.MODE_PRIVATE).getStringSet("slist", setlist);
-            titleList.addAll(titleSet);
-            fragmentList.clear();
-            for (int i = 0; i < titleList.size(); i++) {
-                    for (int j = 0; j <chinaBeanList.size(); j++) {
-                        if (titleList.get(i).equals(chinaBeanList.get(j).getTitle())) {
-                            fragmentList.add(new LiveChinaFragment(chinaBeanList.get(j).getUrl()));
-                        }
-                    }
-            }
+            initload();
         }
 
         adapter = new CFragmentPagerAdapter(getChildFragmentManager(), fragmentList, titleList);
@@ -171,22 +155,8 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
                 if (sss) {
                     if (!getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("asd","").equals("")){
 
-                        Set<String> setlist = new ArraySet<>();
-                        setlist.addAll(list3);
-                        titleList.clear();
-                        fragmentList.clear();
-                        adapter.notifyDataSetChanged();
+                        initload();
 
-                        Set<String> titleSet = getContext().getSharedPreferences("data", Context.MODE_PRIVATE).getStringSet("slist", setlist);
-                        titleList.addAll(titleSet);
-                        for (int i = 0; i < titleList.size(); i++) {
-                                for (int j = 0; j <chinaBeanList.size(); j++) {
-                                    if (titleList.get(i).equals(chinaBeanList.get(j).getTitle())) {
-                                        fragmentList.add(new LiveChinaFragment(chinaBeanList.get(j).getUrl()));
-                                    }
-                                }
-
-                        }
                         adapter.notifyDataSetChanged();
 
                     }
@@ -194,7 +164,6 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
                 if (list.size()>0) {
                     list.clear();
                     list2.clear();
-
                     grid1.removeAllViews();
                     grid2.removeAllViews();
                 }
@@ -225,20 +194,17 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
         grid1.setOnItemSelectListener(new MyGridLayout.OnItemSelectListener() {
             @Override
             public void onItemSelect(String indexString) {
-                Log.d("TuozhuaiActivity", indexString+"");
                 list.remove(indexString);
                 if (!list2.contains(indexString)){
                     list2.add(indexString);
                     grid2.addTvItem(indexString);
                 }
-
-
             }
         });
         grid2.setOnItemSelectListener(new MyGridLayout.OnItemSelectListener() {
             @Override
             public void onItemSelect(String indexString) {
-                Log.d("TuozhuaiActivity", indexString+"");
+
                 list2.remove(indexString);
                 if (!list.contains(indexString)){
                     list.add(indexString);
@@ -248,7 +214,29 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
                 }
 
 
+
             }
+
+
         });
     }
+
+    private void initload() {
+        Set<String> setlist = new ArraySet<>();
+        setlist.addAll(list3);
+        titleList.clear();
+        fragmentList.clear();
+
+        Set<String> titleSet = getContext().getSharedPreferences("data", Context.MODE_PRIVATE).getStringSet("slist", setlist);
+        titleList.addAll(titleSet);
+        for (int i = 0; i < titleList.size(); i++) {
+            for (int j = 0; j <chinaBeanList.size(); j++) {
+                if (titleList.get(i).equals(chinaBeanList.get(j).getTitle())) {
+                    fragmentList.add(new LiveChinaFragment(chinaBeanList.get(j).getUrl()));
+                }
+            }
+
+        }
+    }
+
 }
