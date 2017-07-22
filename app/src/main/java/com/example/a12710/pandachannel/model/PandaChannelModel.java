@@ -5,6 +5,8 @@ import com.example.a12710.pandachannel.model.bean.HomeDataBean;
 import com.example.a12710.pandachannel.model.bean.HomeVideoBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
+import com.example.a12710.pandachannel.model.bean.LiveFlvBean;
+import com.example.a12710.pandachannel.model.bean.LookTalkBean;
 import com.example.a12710.pandachannel.model.bean.MultiBean;
 import com.example.a12710.pandachannel.model.bean.OriginalBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
@@ -117,4 +119,18 @@ public interface PandaChannelModel {
      * @param callBack
      */
     void getPandaLiveTablist(MyCallBack<PandaLivetablist> callBack);
+
+    /**
+     *获取熊猫直播边看边聊
+     * @param callBack
+     *
+     */
+    void getPandaLiveLookTalk(Map<String,String> map,MyCallBack<LookTalkBean> callBack);
+
+    /**
+     *获取熊猫直播live
+     * @param callBack
+     *
+     */
+    void getPandaLive(String url,MyCallBack<LiveFlvBean> callBack);
 }

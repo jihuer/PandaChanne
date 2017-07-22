@@ -1,32 +1,33 @@
 package com.example.a12710.pandachannel.module.panda_live.fragment;
 
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
+import com.example.a12710.pandachannel.model.bean.LiveFlvBean;
 import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
-import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
-import com.example.a12710.pandachannel.module.panda_live.PandaFragmentPresenter;
-import com.example.a12710.pandachannel.module.panda_live.PandaLiveContract;
-import com.example.a12710.pandachannel.module.panda_live.fragment.looktalkfragment.Look_TalkFragment;
-import com.example.a12710.pandachannel.module.panda_live.fragment.multi_anglerfragment.multi_angleFragment;
+import com.example.a12710.pandachannel.module.panda_live.fragment.looktalkfragment.LookTalkFragment;
+import com.example.a12710.pandachannel.module.panda_live.fragment.multi_anglerfragment.LivepathEvent;
+import com.example.a12710.pandachannel.module.panda_live.fragment.multi_anglerfragment.Multi_angleFragment;
 import com.example.a12710.pandachannel.view.MViewpager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
+import io.vov.vitamio.widget.MediaController;
+import io.vov.vitamio.widget.VideoView;
 
 
 /**
@@ -43,7 +45,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  * 直播
  */
 
-public class LiveFragment extends BaseFragment implements PandaLiveContract.PandaLiveView {
+public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.LiveFragmentView{
 
     @BindView(R.id.tv_livetitle)
     TextView tvLivetitle;
@@ -56,62 +58,31 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     @BindView(R.id.pager_live)
     MViewpager pagerLive;
     Unbinder unbinder;
+    private String path = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hdxiongmao08&client=androidapp";
 
-
-    PandaLiveContract.PandaLivePresenter mPandaLivPresenter;
-    @BindView(R.id.bt_livesend)
-    Button btLivesend;
-    @BindView(R.id.ed_live)
-    EditText edLive;
-    @BindView(R.id.live_re)
-    RelativeLayout liveRe;
     @BindView(R.id.videoplayer)
-    JCVideoPlayerStandard videoplayer;
-
+    VideoView videoplayer;
+    private List<PandaLiveBean.LiveBean> list = new ArrayList();
     @Override
     protected void initData() {
-        mPandaLivPresenter = new PandaFragmentPresenter(this);
-        mPandaLivPresenter.start();
+        LiveFragmentPresenter liveFragmentPresenter = new LiveFragmentPresenter(this,path);
+        liveFragmentPresenter.start();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
 
     @Override
     protected void initView(View view) {
+        EventBus.getDefault().register(this);//订阅
         tabLive.setTabMode(TabLayout.MODE_FIXED);
         tabLive.setupWithViewPager(pagerLive);
         initpageData();
-        tabLive.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
-                    case 0:
-                        liveRe.setVisibility(View.GONE);
-                        break;
-                    case 1:
-                        liveRe.setVisibility(View.VISIBLE);
-                        break;
-
-                }
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
     }
 
     private void initpageData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new multi_angleFragment());
-        fragments.add(new Look_TalkFragment());
+        fragments.add(new Multi_angleFragment());
+        fragments.add(new LookTalkFragment());
         List<String> titles = new ArrayList<>();
         titles.add("多视角直播");
         titles.add("边看边聊");
@@ -125,9 +96,8 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
         if (pandaLiveBean!=null){
-            videoplayer.setUp(pandaLiveBean.getLive().get(0).getUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, pandaLiveBean.getLive().get(0).getTitle());
-            Glide.with(getActivity()).load(pandaLiveBean.getLive().get(0).getImage()).into(videoplayer.thumbImageView);
-            tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
+            list.addAll(pandaLiveBean.getLive());
+            //tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
             checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -143,14 +113,16 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
         }
     }
 
-    @Override
-    public void setTabList(PandaLivetablist pandaLivetablist) {
 
-    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void LivepathEvent(LivepathEvent livepathEvent){
+        path = livepathEvent.getPath();
+        initData();
+        //Toast.makeText(getActivity(),list.get(livepathEvent.getPostation()).getTitle(), Toast.LENGTH_SHORT).show();
+        tvLivetitle.setText("[正在直播]" +livepathEvent.getPostation());
 
-    @Override
-    public void setPresenter(PandaLiveContract.PandaLivePresenter pandaLivePresenter) {
-
+        Log.e("TAG", "LivepathEvent: "+path );
+        /*Toast.makeText(getActivity(), path+"", Toast.LENGTH_SHORT).show();*/
     }
 
     @Override
@@ -172,5 +144,31 @@ public class LiveFragment extends BaseFragment implements PandaLiveContract.Pand
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        EventBus.getDefault().unregister(this);//订阅
+
+    }
+
+    @Override
+    public void setPresenter(LiveFragmentContrsct.LiveFragmentPresenter liveFragmentPresenter) {
+
+    }
+
+    @Override
+    public void setLiveData(LiveFlvBean flvBean) {
+        videoplayer.setVideoURI(Uri.parse(flvBean.getFlv_url().getFlv2()));
+
+        MediaController controller = new MediaController(getActivity());
+
+        videoplayer.setMediaController(controller);
+
+        controller.setMediaPlayer(videoplayer);
+
+        controller.setVisibility(View.INVISIBLE);
+
+        videoplayer.setMediaController(controller);
+
+        videoplayer.requestFocus();
+
+        videoplayer.start();
     }
 }

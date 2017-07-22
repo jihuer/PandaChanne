@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.activity.personal_info;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.MotionEvent;
 import android.view.View;
@@ -82,14 +83,17 @@ public class Panda_image_video_Activity extends BaseActivity {
                     }
                 });
 
+/*
         String s = "http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/20/429732b855b24e95ad208807174eb85c_h2641200000nero_aac16-1.mp4";
-
+*/
+        Intent intent = getIntent();
+        String path = intent.getStringExtra("url");
         videoview_top = (VideoView) findViewById(R.id.videoview_sss);
 //        videoview_top.setVideoURI(Uri.parse("http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/17/3d92fae34dc14b2492de15d5dd122ac8_h264200000nero_aac16.mp4"));
 
 //        videoview_top.setBackgroundResource(R.drawable._no_img);
 
-        videoview_top.setVideoURI(Uri.parse(s));
+        videoview_top.setVideoURI(Uri.parse(path));
 
         MediaController controller = new MediaController(this);
 

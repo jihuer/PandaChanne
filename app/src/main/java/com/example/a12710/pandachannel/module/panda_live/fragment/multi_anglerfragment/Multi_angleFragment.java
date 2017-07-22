@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
@@ -15,6 +14,8 @@ import com.example.a12710.pandachannel.model.bean.MultiBean;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +26,7 @@ import butterknife.Unbinder;
  * 多视角直播
  */
 
-public class multi_angleFragment extends BaseFragment implements MultiAngleContract.MultiAngleView {
+public class Multi_angleFragment extends BaseFragment implements MultiAngleContract.MultiAngleView {
     @BindView(R.id.look_recycler)
     XRecyclerView lookRecycler;
     Unbinder unbinder;
@@ -43,7 +44,7 @@ public class multi_angleFragment extends BaseFragment implements MultiAngleContr
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_looktack;
+        return R.layout.fragment_recycler;
     }
 
     @Override
@@ -53,16 +54,23 @@ public class multi_angleFragment extends BaseFragment implements MultiAngleContr
 
     @Override
     public void setResultData(final MultiBean multiBean) {
-        Toast.makeText(getActivity(), multiBean.toString()+"", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), multiBean.toString()+"", Toast.LENGTH_SHORT).show();
 
        if (multiBean!=null) {
            lookRecycler.setLayoutManager(new GridLayoutManager(getActivity(), 3));
            CommonAdapter commonAdapter = new CommonAdapter<MultiBean.ListBean>(getActivity(), R.layout.xrecycler_item, multiBean.getList()) {
                @Override
-               protected void convert(ViewHolder holder, MultiBean.ListBean listBean, int position) {
+               protected void convert(ViewHolder holder, final MultiBean.ListBean listBean, final int position) {
                    holder.setText(R.id.tv_recycler, listBean.getTitle());
                    ImageView imageView = holder.getView(R.id.iv_recycler);
                    Glide.with(getActivity()).load(listBean.getImage()).into(imageView);
+                  holder.itemView.setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          String path = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hd" + listBean.getId() + "&client=androidapp";
+                          EventBus.getDefault().post(new LivepathEvent(path,listBean.getTitle()));
+                      }
+                  });
 
                }
            };

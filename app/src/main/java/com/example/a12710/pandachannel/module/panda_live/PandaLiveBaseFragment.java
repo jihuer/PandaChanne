@@ -1,7 +1,9 @@
 package com.example.a12710.pandachannel.module.panda_live;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.activity.personal_info.Panda_image_video_Activity;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaFragmentData;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -33,11 +36,15 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
     private List<PandaFragmentData.VideoBean> list = new ArrayList<>();
     private CommonAdapter commonAdapter;
 
+    private String url = "";
+    private String id;
+
     @Override
     protected void initData() {
         Bundle arguments = getArguments();
         //Toast.makeText(getActivity(), arguments.getString("vsid")+"", Toast.LENGTH_SHORT).show();
-        PandaLivebasePresenter pandaLivebasePresenter = new PandaLivebasePresenter(this, arguments.getString("vsid"), p);
+        id = arguments.getString("vsid");
+        PandaLivebasePresenter pandaLivebasePresenter = new PandaLivebasePresenter(this,id, p);
         pandaLivebasePresenter.start();
     }
 
@@ -57,7 +64,22 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
                     @Override
                     public void onClick(View v) {
                         String substring = list.get(position).getPtime().substring(0, 10).replace("-", "/");
-                        String url = "http://27.155.108.124/vod.cntv.lxdns.com/flash/mp4video61/TMS/"+substring+"/"+list.get(position).getVid()+"_h264418000nero_aac32.mp4";
+                        if(id.equals("VSET100340574858")){
+                            url = "http://cntv.vod.cdn.myqcloud.com/flash/mp4video61/TMS/" + substring + "/" + list.get(position).getVid() + "_h264418000nero_aac32-1.mp4";
+                        }else if(id.equals("VSET100272959126")){
+                                url = "http://cntv.vod.cdn.myqcloud.com/flash/mp4video59/TMS/" + substring + "/" + list.get(position).getVid() + "_h264418000nero_aac32.mp4";}
+                            else if(id.equals("VSET100237714751")){
+                                    url = "http://vod.cntv.lxdns.com/flash/mp4video60/TMS/" + substring + "/" + list.get(position).getVid() + "_h264418000nero_aac32.mp4";}
+                        else if(id.equals("VSET100167308855")){
+                                        url = "http://vod.cntv.lxdns.com/flash/mp4video60/TMS/" + substring + "/" + list.get(position).getVid() + "_h264418000nero_aac32-1.mp4";
+                                    }else {
+                                        url = "http://cntv.vod.cdn.myqcloud.com/flash/mp4video61/TMS/" + substring + "/" + list.get(position).getVid() + "_h264418000nero_aac32.mp4";
+                                    }
+                        Intent intent = new Intent(getActivity(), Panda_image_video_Activity.class);
+                        intent.putExtra("url",url);
+                        Log.e("url＝＝＝＝＝",url);
+                        getActivity().startActivity(intent);
+
                     }
                 });
             }
@@ -83,7 +105,7 @@ public class PandaLiveBaseFragment extends BaseFragment implements PandaLivebase
 
     @Override
     public int getFragmentLayoutId() {
-        return R.layout.fragment_looktack;
+        return R.layout.fragment_recycler;
     }
 
     @Override

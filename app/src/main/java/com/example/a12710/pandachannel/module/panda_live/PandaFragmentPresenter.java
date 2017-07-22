@@ -2,7 +2,6 @@ package com.example.a12710.pandachannel.module.panda_live;
 
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
-import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
 import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
@@ -31,18 +30,7 @@ import com.example.a12710.pandachannel.network.MyCallBack;
 
         @Override
     public void start() {
-        mPandaChannelModelImp.getPandaLiveData(new MyCallBack<PandaLiveBean>() {
 
-            @Override
-            public void onSuccess(PandaLiveBean pandaLiveBean) {
-                mPandaLiveView.setResultData(pandaLiveBean);
-            }
-
-            @Override
-            public void onFaile(String msg) {
-
-            }
-        });
             mPandaChannelModelImp.getPandaLiveTablist(new MyCallBack<PandaLivetablist>() {
                 @Override
                 public void onSuccess(PandaLivetablist pandaLivetablist) {

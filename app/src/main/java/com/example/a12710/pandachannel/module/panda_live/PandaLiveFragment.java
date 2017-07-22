@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
-import com.example.a12710.pandachannel.model.bean.PandaLiveBean;
 import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
 import com.example.a12710.pandachannel.module.panda_live.fragment.LiveFragment;
 import com.example.a12710.pandachannel.view.MViewpager;
@@ -60,15 +59,7 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
         toobarTitle.setText("熊猫直播");
         pandaliveTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         pandaliveTab.setupWithViewPager(pandalivePager);
-        initPagerData();
-
     }
-
-    private void initPagerData() {
-        PandaFragmentPresenter pandaFragmentPresenter = new PandaFragmentPresenter(this);
-        pandaFragmentPresenter.start();
-    }
-
     @Override
     public int getFragmentLayoutId() {
         return R.layout.fragment_pandalive;
@@ -93,30 +84,26 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
     public void setPresenter(PandaLiveContract.PandaLivePresenter pandaLivePresenter) {
 
     }
-
-    @Override
-    public void setResultData(PandaLiveBean pandaLiveBean) {
-
-    }
-
     @Override
     public void setTabList(PandaLivetablist pandaLivetablist) {
         Log.e("TAG", "================setTabList=======================");
-        List<Fragment> fragments = new ArrayList<>();
-        List<String> titles = new ArrayList<>();
-        fragments.add(new LiveFragment());
-        for (int i = 0; i < pandaLivetablist.getTablist().size(); i++) {
-            titles.add(pandaLivetablist.getTablist().get(i).getTitle());
-            if (i > 0) {
-                Bundle bundle = new Bundle();
-                bundle.putString("vsid", pandaLivetablist.getTablist().get(i).getId());
-                PandaLiveBaseFragment pandaLiveBaseFragment = new PandaLiveBaseFragment();
-                pandaLiveBaseFragment.setArguments(bundle);
-                fragments.add(pandaLiveBaseFragment);
+        if (pandaLivetablist!=null) {
+            List<Fragment> fragments = new ArrayList<>();
+            List<String> titles = new ArrayList<>();
+            fragments.add(new LiveFragment());
+            for (int i = 0; i < pandaLivetablist.getTablist().size(); i++) {
+                titles.add(pandaLivetablist.getTablist().get(i).getTitle());
+                if (i > 0) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("vsid", pandaLivetablist.getTablist().get(i).getId());
+                    PandaLiveBaseFragment pandaLiveBaseFragment = new PandaLiveBaseFragment();
+                    pandaLiveBaseFragment.setArguments(bundle);
+                    fragments.add(pandaLiveBaseFragment);
+                }
             }
-        }
 
-        MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(), fragments, titles);
-        pandalivePager.setAdapter(pagerAdapter);
+            MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getActivity().getSupportFragmentManager(), fragments, titles);
+            pandalivePager.setAdapter(pagerAdapter);
+        }
     }
 }

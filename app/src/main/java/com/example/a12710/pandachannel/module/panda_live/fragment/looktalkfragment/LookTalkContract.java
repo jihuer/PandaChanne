@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.module.panda_live.fragment.looktalkfragment;
 
+import com.example.a12710.pandachannel.base.BasePresenter;
 import com.example.a12710.pandachannel.base.BaseView;
 import com.example.a12710.pandachannel.model.bean.LookTalkBean;
 
@@ -13,5 +14,5 @@ public interface LookTalkContract {
 
    }
 
-
+    interface LookTackPresenter extends BasePresenter{}
 }

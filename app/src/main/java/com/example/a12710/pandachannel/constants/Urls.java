@@ -37,5 +37,7 @@ public class Urls {
     //熊猫直播tab标签
     public static final String PANDALIVETABLIST = "http://www.ipanda.com/kehuduan/PAGE14501772263221982/index.json";
     //熊猫直播
-    public static final String PANDALIVEFRAGMENTDATA ="http://api.cntv.cn/video/videolistById";
+    public static final String PANDALIVEFRAGMENTDATA = "http://api.cntv.cn/video/videolistById";
+    //熊猫直播边看边聊
+    public static final String PANDALIVELOOKTALK = "http://newcomment.cntv.cn/comment/list";
 }
