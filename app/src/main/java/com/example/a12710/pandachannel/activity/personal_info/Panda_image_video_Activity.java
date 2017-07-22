@@ -138,6 +138,7 @@ public class Panda_image_video_Activity extends BaseActivity {
     }
 
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
