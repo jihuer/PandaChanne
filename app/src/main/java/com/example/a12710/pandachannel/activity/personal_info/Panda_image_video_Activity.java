@@ -105,6 +105,8 @@ public class Panda_image_video_Activity extends BaseActivity {
 
         videoview_top.start();   //开始播放
 
+
+        //动画
         top_animation_start = AnimationUtils.loadAnimation(this, R.anim.top_translate_start);
 
         top_animation_start.setDuration(500);
