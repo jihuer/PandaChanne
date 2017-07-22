@@ -9,8 +9,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/lc_add_cha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/live_china_delect_channel"
             android:layout_alignParentRight="true"
             android:padding="5dp"/>
@@ -23,14 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="切换栏目"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textColor="#FFF"/>
         <TextView
+            android:id="@+id/lc_add_bianji"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="编辑"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_alignParentRight="true"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
