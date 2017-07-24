@@ -1,6 +1,10 @@
 package com.example.a12710.pandachannel.network;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
 import com.example.a12710.pandachannel.global.MyApp;
 import com.google.gson.Gson;
 
@@ -13,6 +17,7 @@ import java.util.Set;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -134,5 +139,67 @@ public class HttpUtils implements IHttp {
             }
         });
 
+    }
+
+    @Override
+    public <T> void getCookies(String url, Map<String, String> params, final MyCallBack<T> callBack) {
+        FormBody.Builder builder = new FormBody.Builder();
+        Set<String> set = params.keySet();
+        for (String key : set) {
+            builder.add(key, params.get(key));
+        }
+        FormBody body = builder.build();
+        Request request = new Request.Builder().url(url).post(body).build();
+        mOkHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, final IOException e) {
+                MyApp.mContext.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onFaile(e.getMessage());
+                    }
+                });
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+               if (response.isSuccessful()){
+                   keepCookie(response);
+                   final String jsonData = response.body().string();
+                   MyApp.mContext.runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           callBack.onSuccess(getGeneric(jsonData, callBack));
+                       }
+                   });
+               }
+
+
+            }
+        });
+    }
+    /**
+     * 保存cookie
+     *
+     * @param response
+     */
+    private void keepCookie(Response response) {
+        String cookie = "";
+        Headers headers = response.headers();
+        Set<String> names = headers.names();
+        for (String key : names) {
+            String values = headers.get(key);
+            if (key.contains("Set-Cookie"))
+                cookie += values + ";";
+            Log.i("kye---",key);
+            Log.i("values---",values);
+        }
+        if (cookie.length() > 0) {
+            cookie = cookie.substring(0, cookie.length() - 1);
+        }
+        Log.i("cookie", cookie);
+        SharedPreferences data = MyApp.mContext.getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = data.edit();
+        edit.putString("cookie", cookie);
+        edit.commit();
     }
 }

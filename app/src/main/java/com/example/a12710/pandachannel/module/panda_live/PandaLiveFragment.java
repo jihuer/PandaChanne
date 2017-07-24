@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.module.panda_live;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.activity.personal_info.PersonInfoActivity;
 import com.example.a12710.pandachannel.adpter.MFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaLivetablist;
@@ -55,10 +57,16 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     protected void initView(View view) {
-
         toobarTitle.setText("熊猫直播");
         pandaliveTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         pandaliveTab.setupWithViewPager(pandalivePager);
+        toobarSign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PersonInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public int getFragmentLayoutId() {

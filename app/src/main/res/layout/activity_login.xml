@@ -141,9 +141,9 @@
         android:orientation="horizontal"
 
         >
+        <!--android:clickable="true"
+        android:focusableInTouchMode="false"-->
         <EditText
-            android:clickable="true"
-            android:focusableInTouchMode="false"
             android:id="@+id/num"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -193,9 +193,10 @@
         android:orientation="horizontal"
 
         >
+        <!--            android:clickable="true"
+            android:focusableInTouchMode="false"-->
         <EditText
-            android:clickable="true"
-            android:focusableInTouchMode="false"
+
             android:id="@+id/pass"
             android:layout_width="0dp"
             android:layout_height="0dp"

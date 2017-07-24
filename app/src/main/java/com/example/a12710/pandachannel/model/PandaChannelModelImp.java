@@ -8,6 +8,7 @@ import com.example.a12710.pandachannel.model.bean.HomeVideoBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
 import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
 import com.example.a12710.pandachannel.model.bean.LiveFlvBean;
+import com.example.a12710.pandachannel.model.bean.LoginBean;
 import com.example.a12710.pandachannel.model.bean.LookTalkBean;
 import com.example.a12710.pandachannel.model.bean.MultiBean;
 import com.example.a12710.pandachannel.model.bean.OriginalBean;
@@ -143,5 +144,10 @@ public class PandaChannelModelImp implements PandaChannelModel {
     public void getPandaLive(String url, MyCallBack<LiveFlvBean> callBack) {
         HttpFactory.create().get(url, null, callBack);
 
+    }
+
+    @Override
+    public void getLoginData(Map<String, String> map, MyCallBack<LoginBean> callBack) {
+        HttpFactory.create().getCookies(Urls.PANDALOGIN,map,callBack);
     }
 }
