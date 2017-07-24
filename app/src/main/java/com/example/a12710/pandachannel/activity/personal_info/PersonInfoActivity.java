@@ -80,6 +80,7 @@ public class PersonInfoActivity extends BaseActivity {
                 Intent intent1 = new Intent(PersonInfoActivity.this,SettingActivity.class);
                 startActivity(intent1);
 
+
                 break;
         }
     }
