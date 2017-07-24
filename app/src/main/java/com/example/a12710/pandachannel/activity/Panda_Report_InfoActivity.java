@@ -1,6 +1,7 @@
 package com.example.a12710.pandachannel.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,12 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
     private PopupWindow popupWindow;
     private WindowManager.LayoutParams lp;
     private UMShareListener shareListener;
+    private int position;
+    private String report_img;
+    private String report_title;
+    private String time;
+    private SharedPreferences.Editor editor;
+    private SharedPreferences sp;
 
     @Override
     protected void initView() {
@@ -49,6 +56,11 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
 
         Intent i = getIntent();
         String url = i.getStringExtra("url");
+        position = i.getIntExtra("position", 0);
+        report_img = i.getStringExtra("report_img");
+        report_title = i.getStringExtra("report_title");
+        time = i.getStringExtra("time");
+
         panda_report_web.loadUrl(url);
 //
 
@@ -80,9 +92,16 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
                 break;
             case R.id.panda_report_shoucang:
                 if (panda_report_shoucang.isChecked()){
+                    sp = getSharedPreferences("data",MODE_PRIVATE);
+                    editor = sp.edit();
+                    editor.putString("report_img"+position,report_img);
+                    editor.putString("report_title"+position,report_title);
+                    editor.putString("time"+position,time);
+                    editor.commit();
 
                     Toast.makeText(Panda_Report_InfoActivity.this,"已添加，请到[我的收藏]中查看",Toast.LENGTH_SHORT).show();
                 }else {
+                    editor.clear();
                     Toast.makeText(Panda_Report_InfoActivity.this,"已取消收藏",Toast.LENGTH_SHORT).show();
                 }
 

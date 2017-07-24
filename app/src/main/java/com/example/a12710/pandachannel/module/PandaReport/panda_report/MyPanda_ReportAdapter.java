@@ -38,16 +38,31 @@ public class MyPanda_ReportAdapter extends RecyclerView.Adapter<MyPanda_ReportAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
+
+        StringBuffer stringBuffer = new StringBuffer(listBeen.get(position).getUrl());
+        StringBuffer delete = stringBuffer.delete(0, 23);
+        StringBuffer stringBuffer2 = new StringBuffer(delete);
+        StringBuffer delete1 = stringBuffer2.delete(10, delete.length());
+        StringBuffer stringBuffer3 = new StringBuffer(delete1);
+        StringBuffer replace = stringBuffer3.replace(4, 5, "-");
+        StringBuffer stringBuffer4 = new StringBuffer(replace);
+        final StringBuffer replace1 = stringBuffer4.replace(7, 8, "-");
+
         holder.panda_report_title.setText(listBeen.get(position).getTitle());
-        holder.panda_report_time.setText( listBeen.get(position).getFocus_date()+"");
+        holder.panda_report_time.setText(replace1);
         Glide.with(context).load(listBeen.get(position).getPicurl()).into(holder.panda_report_img);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, Panda_Report_InfoActivity.class);
+                    i.putExtra("position",position);
+                    i.putExtra("report_img",listBeen.get(position).getPicurl());
+                    i.putExtra("report_title",listBeen.get(position).getTitle());
+                    i.putExtra("time",replace1.toString());
                     i.putExtra("url",listBeen.get(position).getUrl());
                     context.startActivity(i);
+
                 }
             });
 

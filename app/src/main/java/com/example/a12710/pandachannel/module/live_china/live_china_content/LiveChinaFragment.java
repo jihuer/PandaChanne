@@ -24,6 +24,7 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
     LiveChinaAdapter adapter;
 
 
+
     public LiveChinaFragment(String url) {
         this.url = url;
     }
