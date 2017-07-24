@@ -77,6 +77,8 @@ public class PersonInfoActivity extends BaseActivity {
             case R.id.shoucang:
                 break;
             case R.id.set:
+                Intent intent1 = new Intent(PersonInfoActivity.this,SettingActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

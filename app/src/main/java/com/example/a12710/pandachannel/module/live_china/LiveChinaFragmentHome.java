@@ -1,6 +1,7 @@
 package com.example.a12710.pandachannel.module.live_china;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.a12710.pandachannel.R;
+import com.example.a12710.pandachannel.activity.personal_info.PersonInfoActivity;
 import com.example.a12710.pandachannel.adpter.CFragmentPagerAdapter;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.LiveChinaBean;
@@ -35,7 +37,7 @@ import java.util.Set;
 public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabContract.LiveChinaTabView, View.OnClickListener {
     LiveChinaTabContract.LiveChinaTabPresenter mliveChinaTabPresenter;
     TabLayout tabLayout;
-    ImageView add;
+    ImageView add, toobar_sign;
     ViewPager viewPager;
     TextView tou;
     List<Fragment> fragmentList;
@@ -65,6 +67,7 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
         add = (ImageView) view.findViewById(R.id.lc_add);
         viewPager = (ViewPager) view.findViewById(R.id.lc_vp);
         viewById = view.findViewById(R.id.top_line);
+        toobar_sign = (ImageView) view.findViewById(R.id.toobar_sign);
 
         View popupview = View.inflate(getContext(), R.layout.fragment_livechina_add, null);
         cha = (ImageView) popupview.findViewById(R.id.lc_add_cha);
@@ -96,6 +99,7 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
         add.setOnClickListener(this);
         cha.setOnClickListener(this);
         bianji.setOnClickListener(this);
+        toobar_sign.setOnClickListener(this);
     }
     @Override
     public int getFragmentLayoutId() {
@@ -171,6 +175,11 @@ public class LiveChinaFragmentHome extends BaseFragment implements LiveChinaTabC
                 break;
             case R.id.lc_add_bianji:
                 break;
+            case R.id.toobar_sign:
+                Intent intent = new Intent(getContext(), PersonInfoActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 

@@ -63,7 +63,10 @@
         <activity android:name=".activity.personal_info.ShouCangActivity" />
         <activity android:name=".activity.personal_info.HistoryActivity" />
         <activity android:name=".activity.personal_info.Panda_image_video_Activity"
+
             android:screenOrientation="landscape"></activity>
+        <activity android:name=".activity.personal_info.SettingAboutActivity" />
+        <activity android:name=".activity.personal_info.SettingTicklingActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"

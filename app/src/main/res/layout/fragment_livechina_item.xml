@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp">
+        <io.vov.vitamio.widget.VideoView
+            android:id="@+id/lc_videoview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="100%"
+            app:layout_widthPercent="100%" />
         <ImageView
             android:id="@+id/lc_fi_image"
             android:layout_width="match_parent"
@@ -12,6 +24,7 @@
             android:src="@drawable/_no_img"
             android:scaleType="centerCrop"/>
         <ImageView
+            android:id="@+id/lc_fi_bo"
             android:layout_centerInParent="true"
             android:layout_width="40dp"
             android:layout_height="40dp"
