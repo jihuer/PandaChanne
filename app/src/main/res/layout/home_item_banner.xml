@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/mybanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="36%h"
+        app:layout_widthPercent="100%w" />
+
+</com.zhy.android.percent.support.PercentLinearLayout>

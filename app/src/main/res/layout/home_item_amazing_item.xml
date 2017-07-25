@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="180dp"
+        android:layout_height="120dp">
+
+
+        <ImageView
+            android:id="@+id/Home_item_Amazing_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/lpanda_bottom_gra" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/home_play_icon" />
+
+        <TextView
+            android:id="@+id/Home_item_Amazing_timeLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="30dp"
+            android:text="00:35"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Home_item_Amazing_Title"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:enabled="true"
+        android:maxLines="2"
+        android:text="你们的“小灰灰”被打倒变形"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/Home_item_Amazing_bodytime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="2017-07-14"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFDCDADA" />
+
+</LinearLayout>

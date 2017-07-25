@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Home_item_Amazing_jingcai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="精彩一刻"
+        android:textColor="#1215de"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/amazing_text"
+        android:layout_below="@id/Home_item_Amazing_jingcai"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#cfc4c4"/>
+
+    <com.example.a12710.pandachannel.utils.MyGridView
+        android:id="@+id/Home_GridView_Amazing"
+        android:layout_below="@id/amazing_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:fastScrollEnabled="false"
+        android:numColumns="2">
+
+    </com.example.a12710.pandachannel.utils.MyGridView>
+
+</RelativeLayout>

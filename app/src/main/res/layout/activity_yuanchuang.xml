@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#0d11ed">
+        <ImageView
+            android:id="@+id/yuanchuang_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/personal_back_img"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:text="原创·互动"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/yuanchuang_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>

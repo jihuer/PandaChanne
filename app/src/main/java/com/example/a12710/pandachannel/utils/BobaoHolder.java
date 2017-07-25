@@ -1,0 +1,17 @@
+package com.example.a12710.pandachannel.utils;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+/**
+ * Created by 魏正洋 on 2017/7/21.
+ */
+
+public class BobaoHolder extends RecyclerView.ViewHolder {
+
+    public BobaoHolder(View itemView) {
+        super(itemView);
+
+    }
+
+}

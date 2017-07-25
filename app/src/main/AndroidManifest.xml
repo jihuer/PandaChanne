@@ -58,28 +58,46 @@
         <activity android:name=".activity.personal_info.SettingActivity" />
         <activity android:name=".activity.personal_info.ShouCangActivity" />
         <activity android:name=".activity.personal_info.HistoryActivity" />
-        <activity android:name=".activity.personal_info.Panda_image_video_Activity"
+        <activity
+            android:name=".activity.personal_info.Panda_image_video_Activity"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".activity.home_activity.LunboActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.home_activity.BobaoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.home_activity.XiuchangActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.home_activity.GunGunActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.home_activity.ChinaliveActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.HuDongActivity" />
+        <activity android:name=".activity.HuDongWeb" />
         <activity android:name=".activity.personal_info.SettingAboutActivity" />
         <activity android:name=".activity.personal_info.SettingTicklingActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
-
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
     </application>
 
