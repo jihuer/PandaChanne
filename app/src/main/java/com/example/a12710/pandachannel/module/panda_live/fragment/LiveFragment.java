@@ -165,6 +165,7 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
         videoplayer.start();
     }
 
+
     @OnClick(R.id.tv)
     public void onViewClicked() {
             if (tv.getText().equals("开始")){
