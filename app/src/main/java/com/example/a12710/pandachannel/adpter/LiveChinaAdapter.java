@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.List;
 
 import io.vov.vitamio.MediaPlayer;
-import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -69,7 +68,6 @@ public class LiveChinaAdapter extends BaseAdapters<LiveChinaContentBean.LiveBean
                         jiazai.setImageResource(R.drawable.live_china_detail_up);
                         holder.setViewVisiable(R.id.lc_fi_view, View.VISIBLE);
                         break;
-
                     case 0:
                         s = 1;
                         jiazai.setImageResource(R.drawable.live_china_detail_down);
@@ -115,7 +113,7 @@ public class LiveChinaAdapter extends BaseAdapters<LiveChinaContentBean.LiveBean
                    // videoview_top.setMediaController(controller);
                     videoview_top.setVideoQuality(MediaPlayer.VIDEOQUALITY_LOW);
 
-                   /* controller.setMediaPlayer(videoview_top);
+                   /* controller.setMediaPlayer(vid                                                                                                                                     eoview_top);
 
                     controller.setVisibility(View.INVISIBLE);
 

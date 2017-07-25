@@ -39,6 +39,14 @@ public class SettingTicklingActivity extends BaseActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        initData();
+        initListener();
+    }
+
+    private void initData() {
+    }
+
+    private void initListener() {
     }
 
     @Override
