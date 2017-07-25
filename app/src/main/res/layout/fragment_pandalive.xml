@@ -13,6 +13,8 @@
     android:layout_marginTop="10dp"
     android:layout_width="0dp"
     android:layout_height="0dp"
+    app:tabIndicatorHeight="3dp"
+    app:tabIndicatorColor="@color/colorPrimaryDark"
     app:tabSelectedTextColor="@color/colorPrimaryDark"
     app:layout_heightPercent="13%w"
     app:layout_widthPercent="100%w"

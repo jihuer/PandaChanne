@@ -99,6 +99,8 @@
                 android:layout_marginTop="2dp"
                 android:background="@color/home_line"
                 android:id="@+id/tab_live"
+                app:tabIndicatorColor="@color/colorPrimaryDark"
+                app:tabIndicatorHeight="3dp"
                 app:tabSelectedTextColor="@color/colorPrimaryDark"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
