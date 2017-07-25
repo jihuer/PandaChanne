@@ -41,9 +41,11 @@ public class LookTalkFragment extends BaseFragment implements LookTalkContract.L
     private int p = 1;
     private CommonAdapter commonAdapter;
     private List<LookTalkBean.DataBean.ContentBean> list = new ArrayList<>();
+    private LookTalkFragmentPresenter lookTalkFragmentPresenter;
+
     @Override
     protected void initData() {
-        LookTalkFragmentPresenter lookTalkFragmentPresenter = new LookTalkFragmentPresenter(this, p);
+        lookTalkFragmentPresenter = new LookTalkFragmentPresenter(this, p);
         lookTalkFragmentPresenter.start();
     }
 
@@ -78,7 +80,13 @@ public class LookTalkFragment extends BaseFragment implements LookTalkContract.L
                 recycler.refreshComplete();
             }
         });
-
+        btLivesend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String trim = edLive.getText().toString().trim();
+                lookTalkFragmentPresenter.setsend(trim);
+            }
+        });
     }
 
     @Override

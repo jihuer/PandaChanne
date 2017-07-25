@@ -139,5 +139,9 @@ public interface PandaChannelModel {
      *  @param callBack
      */
     void getLoginData(Map<String,String> map , MyCallBack<LoginBean> callBack);
-
+    /**
+     * 发送边看边聊
+     *  @param callBack
+     */
+    void SendNews(Map<String,String> map,MyCallBack callBack);
 }

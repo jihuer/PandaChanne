@@ -42,4 +42,6 @@ public class Urls {
     public static final String PANDALIVELOOKTALK = "http://newcomment.cntv.cn/comment/list";
     //登录
     public static final String PANDALOGIN = "https://reg.cntv.cn/login/login.action";
+    //边看边聊之聊
+    public static final String SENDNEWS = "http://newcomment.cntv.cn/comment/post";
 }

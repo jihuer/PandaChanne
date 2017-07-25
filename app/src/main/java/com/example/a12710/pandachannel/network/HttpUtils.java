@@ -114,7 +114,9 @@ public class HttpUtils implements IHttp {
             builder.add(key, params.get(key));
         }
         FormBody body = builder.build();
-        Request request = new Request.Builder().url(url).post(body).build();
+        SharedPreferences data = MyApp.mContext.getSharedPreferences("data", Context.MODE_PRIVATE);
+        String cookie = data.getString("cookie", "");
+        Request request = new Request.Builder().url(url).addHeader("cookie",cookie).post(body).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {

@@ -150,4 +150,9 @@ public class PandaChannelModelImp implements PandaChannelModel {
     public void getLoginData(Map<String, String> map, MyCallBack<LoginBean> callBack) {
         HttpFactory.create().getCookies(Urls.PANDALOGIN,map,callBack);
     }
+
+    @Override
+    public void SendNews(Map<String, String> map, MyCallBack callBack) {
+        HttpFactory.create().post(Urls.SENDNEWS,map,callBack);
+    }
 }
