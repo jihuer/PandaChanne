@@ -46,4 +46,9 @@ public class LiveFragmentPresenter implements LiveFragmentContrsct.LiveFragmentP
             }
         });
     }
+
+    public void setpath(String path) {
+        this.path = path;
+        start();
+    }
 }

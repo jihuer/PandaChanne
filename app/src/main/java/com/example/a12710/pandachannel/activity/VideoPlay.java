@@ -18,7 +18,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.Adapter.PlayAdapter;
 import com.example.a12710.pandachannel.Adapter.RecyclerViewAdapter;
 import com.example.a12710.pandachannel.R;
@@ -39,7 +38,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class VideoPlay extends AppCompatActivity {
 
@@ -64,7 +62,6 @@ public class VideoPlay extends AppCompatActivity {
     private String videourl;
     private String videourl1;
     private String img;
-    private JCVideoPlayerStandard jiecao;
     private long i=0;
 
     public VideoPlay() {
@@ -88,7 +85,6 @@ public class VideoPlay extends AppCompatActivity {
         });
         gungunplayjieshao = (TextView) findViewById(R.id.gungunplay_jieshao);
         playtitle = (TextView) findViewById(R.id.playTitle);
-        jiecao = (JCVideoPlayerStandard) findViewById(R.id.jiecao);
         jieshaoimage = (ImageButton) findViewById(R.id.jieshao);
         jieshaoxiangqing = (LinearLayout) findViewById(R.id.jieshaoxiangqing);
         collectimg = (ImageButton) findViewById(R.id.collect);
@@ -119,7 +115,6 @@ public class VideoPlay extends AppCompatActivity {
         final String brief = intent.getStringExtra("provide");
         gungunplayjieshao.setText(brief);
         playtitle.setText(title);
-        Glide.with(this).load(image).into(jiecao.thumbImageView);
 //        jiecao.setUp(url, title);
         String ur = "http://api.cntv.cn/video/videolistById?n=10&vsid=VSET100284428835&p=1&serviceId=panda&em="+i;
         Map<String, String> map = new HashMap<>();
@@ -138,8 +133,6 @@ public class VideoPlay extends AppCompatActivity {
                         final String vid = video.get(position).getVid();
                         Log.e("abcdefghi", vid);
                         img = video.get(position).getImg();
-                        Glide.with(VideoPlay.this).load(video.get(position).getImg()).into(jiecao.thumbImageView);
-                        gungunplayjieshao.setText(video.get(position).getT());
                     }
                 });
 

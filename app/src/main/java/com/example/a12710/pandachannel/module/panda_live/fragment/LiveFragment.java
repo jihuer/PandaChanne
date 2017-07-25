@@ -1,5 +1,6 @@
 package com.example.a12710.pandachannel.module.panda_live.fragment;
 
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,9 +35,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
 
@@ -45,7 +45,7 @@ import io.vov.vitamio.widget.VideoView;
  * 直播
  */
 
-public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.LiveFragmentView{
+public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.LiveFragmentView {
 
     @BindView(R.id.tv_livetitle)
     TextView tvLivetitle;
@@ -58,14 +58,18 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
     @BindView(R.id.pager_live)
     MViewpager pagerLive;
     Unbinder unbinder;
+    @BindView(R.id.tv)
+    TextView tv;
     private String path = "http://vdn.live.cntv.cn/api2/live.do?channel=pa://cctv_p2p_hdxiongmao08&client=androidapp";
-
+    private ProgressDialog progressBar;
     @BindView(R.id.videoplayer)
     VideoView videoplayer;
     private List<PandaLiveBean.LiveBean> list = new ArrayList();
+    private LiveFragmentPresenter liveFragmentPresenter;
+
     @Override
     protected void initData() {
-        LiveFragmentPresenter liveFragmentPresenter = new LiveFragmentPresenter(this,path);
+        liveFragmentPresenter = new LiveFragmentPresenter(this, path);
         liveFragmentPresenter.start();
     }
 
@@ -77,6 +81,7 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
         tabLive.setTabMode(TabLayout.MODE_FIXED);
         tabLive.setupWithViewPager(pagerLive);
         initpageData();
+        progressBar = new ProgressDialog(getActivity());
     }
 
     private void initpageData() {
@@ -89,13 +94,15 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
         MFragmentPagerAdapter pagerAdapter = new MFragmentPagerAdapter(getChildFragmentManager(), fragments, titles);
         pagerLive.setAdapter(pagerAdapter);
     }
+
     @Override
     public int getFragmentLayoutId() {
         return R.layout.fragment_live;
     }
+
     @Override
     public void setResultData(final PandaLiveBean pandaLiveBean) {
-        if (pandaLiveBean!=null){
+        if (pandaLiveBean != null) {
             list.addAll(pandaLiveBean.getLive());
             //tvLivetitle.setText("[正在直播]" + pandaLiveBean.getLive().get(0).getTitle());
             checkboxLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -115,13 +122,12 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void LivepathEvent(LivepathEvent livepathEvent){
-        path = livepathEvent.getPath();
-        initData();
-        //Toast.makeText(getActivity(),list.get(livepathEvent.getPostation()).getTitle(), Toast.LENGTH_SHORT).show();
-        tvLivetitle.setText("[正在直播]" +livepathEvent.getPostation());
+    public void LivepathEvent(LivepathEvent livepathEvent) {
 
-        Log.e("TAG", "LivepathEvent: "+path );
+        liveFragmentPresenter.setpath(livepathEvent.getPath());
+        //Toast.makeText(getActivity(),list.get(livepathEvent.getPostation()).getTitle(), Toast.LENGTH_SHORT).show();
+        tvLivetitle.setText("[正在直播]" + livepathEvent.getPostation());
+        Log.e("TAG", "LivepathEvent: " + path);
         /*Toast.makeText(getActivity(), path+"", Toast.LENGTH_SHORT).show();*/
     }
 
@@ -133,12 +139,6 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
         return rootView;
     }
 
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        JCVideoPlayer.releaseAllVideos();
-    }
 
     @Override
     public void onDestroyView() {
@@ -155,20 +155,29 @@ public class LiveFragment extends BaseFragment implements LiveFragmentContrsct.L
 
     @Override
     public void setLiveData(LiveFlvBean flvBean) {
+        //progressBar.show();
         videoplayer.setVideoURI(Uri.parse(flvBean.getFlv_url().getFlv2()));
-
-        MediaController controller = new MediaController(getActivity());
-
-        videoplayer.setMediaController(controller);
-
-        controller.setMediaPlayer(videoplayer);
-
-        controller.setVisibility(View.INVISIBLE);
-
-        videoplayer.setMediaController(controller);
-
+        //MediaPlayer mediaPlayer = new MediaPlayer(getActivity());
         videoplayer.requestFocus();
-
+       /* if (videoplayer.isBuffering()) {
+            progressBar.dismiss();
+        }*/
         videoplayer.start();
+    }
+
+    @OnClick(R.id.tv)
+    public void onViewClicked() {
+            if (tv.getText().equals("开始")){
+                videoplayer.start();
+                tv.setText("暂停");
+                Toast.makeText(getActivity(), "开始", Toast.LENGTH_SHORT).show();
+            }else {
+                videoplayer.pause();
+                tv.setText("开始");
+                Toast.makeText(getActivity(), "暂停", Toast.LENGTH_SHORT).show();
+
+            }
+
+
     }
 }

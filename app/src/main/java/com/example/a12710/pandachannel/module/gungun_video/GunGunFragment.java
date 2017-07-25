@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.Adapter.RecyclerViewAdapter;
 import com.example.a12710.pandachannel.R;
-import com.example.a12710.pandachannel.activity.JiCaoVideo;
 import com.example.a12710.pandachannel.activity.VideoPlay;
+import com.example.a12710.pandachannel.activity.personal_info.Panda_image_video_Activity;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.constants.Urls;
 import com.example.a12710.pandachannel.model.bean.RollRollVideoBean;
@@ -99,7 +99,7 @@ public class GunGunFragment extends BaseFragment implements GungunContract.gungu
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), JiCaoVideo.class);
+                Intent intent = new Intent(getActivity(), Panda_image_video_Activity.class);
                 intent.putExtra("url", "http://vod.cntv.lxdns.com/flash/mp4video61/TMS/2017/07/17/3d92fae34dc14b2492de15d5dd122ac8_h264200000nero_aac16.mp4");
                 startActivity(intent);
 

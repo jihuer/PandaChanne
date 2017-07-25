@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseActivity;
@@ -126,6 +127,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         transaction.commit();
     }
+    private long mPressedTime = 0;
 
-
+    @Override
+    public void onBackPressed() {
+        long mNowTime = System.currentTimeMillis();//获取第一次按键时间
+    if((mNowTime - mPressedTime) > 2000){//比较两次按键时间差
+    Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+    mPressedTime = mNowTime;
+        } else{//退出程序
+        this.finish();
+            System.exit(0);
+}
+    }
 }
