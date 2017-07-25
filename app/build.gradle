@@ -57,4 +57,5 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/open_sdk_r5781.jar')
     compile files('libs/open_sdk_r5788_lite.jar')
+    compile project(':PushSDK')
 }
