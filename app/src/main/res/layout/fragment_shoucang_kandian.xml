@@ -3,6 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/_no_collect"
+        android:visibility="gone"
+        android:id="@+id/kandian_img"/>
 
     <ListView
         android:layout_width="match_parent"

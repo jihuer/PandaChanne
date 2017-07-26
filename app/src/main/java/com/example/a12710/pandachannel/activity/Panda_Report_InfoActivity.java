@@ -1,7 +1,7 @@
 package com.example.a12710.pandachannel.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.base.BaseActivity;
+import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.modelmsg.WXTextObject;
@@ -24,6 +25,8 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import java.util.ArrayList;
 
 import static android.provider.UserDictionary.Words.APP_ID;
 
@@ -36,12 +39,12 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
     private PopupWindow popupWindow;
     private WindowManager.LayoutParams lp;
     private UMShareListener shareListener;
+    private ArrayList<PandaBroadBean.ListBean> list;
+
+    private PandaBroadBean pandaBroadBean;
     private int position;
-    private String report_img;
-    private String report_title;
-    private String time;
-    private SharedPreferences.Editor editor;
-    private SharedPreferences sp;
+    private PandaBroadBean.ListBean listBean;
+
 
     @Override
     protected void initView() {
@@ -54,16 +57,20 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
         panda_report_share.setOnClickListener(this);
         panda_report_shoucang.setOnClickListener(this);
 
+
         Intent i = getIntent();
         String url = i.getStringExtra("url");
         position = i.getIntExtra("position", 0);
-        report_img = i.getStringExtra("report_img");
-        report_title = i.getStringExtra("report_title");
-        time = i.getStringExtra("time");
+        Log.e("TAG----",url+"---------------");
+        list = (ArrayList<PandaBroadBean.ListBean>) i.getSerializableExtra("list");
+
+
+        pandaBroadBean = new PandaBroadBean();
+//        list.addAll(pandaBroadBean.getList());
+
 
         panda_report_web.loadUrl(url);
 //
-
         panda_report_web.getSettings().setUseWideViewPort(true);
         panda_report_web.getSettings().setLoadWithOverviewMode(true);
         panda_report_web.getSettings().setSupportZoom(true);
@@ -92,16 +99,11 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
                 break;
             case R.id.panda_report_shoucang:
                 if (panda_report_shoucang.isChecked()){
-                    sp = getSharedPreferences("data",MODE_PRIVATE);
-                    editor = sp.edit();
-                    editor.putString("report_img"+position,report_img);
-                    editor.putString("report_title"+position,report_title);
-                    editor.putString("time"+position,time);
-                    editor.commit();
+                    listBean = list.get(position);
 
                     Toast.makeText(Panda_Report_InfoActivity.this,"已添加，请到[我的收藏]中查看",Toast.LENGTH_SHORT).show();
                 }else {
-                    editor.clear();
+
                     Toast.makeText(Panda_Report_InfoActivity.this,"已取消收藏",Toast.LENGTH_SHORT).show();
                 }
 
@@ -115,7 +117,7 @@ public class Panda_Report_InfoActivity extends BaseActivity implements View.OnCl
                 popupWindow.setContentView(view);
                 popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                 popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                View view1 = LayoutInflater.from(Panda_Report_InfoActivity.this).inflate(R.layout.activity_gungun_video_play, null);
+                View view1 = LayoutInflater.from(Panda_Report_InfoActivity.this).inflate(R.layout.popwindown, null);
                 popupWindow.showAtLocation(view1, Gravity.BOTTOM, 0, 0);
                 lp = getWindow().getAttributes();
                 lp.alpha = 0.7f;

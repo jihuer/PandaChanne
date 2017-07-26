@@ -1,20 +1,20 @@
 package com.example.a12710.pandachannel.Adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.model.bean.YuanChuangbean;
 
 import java.util.ArrayList;
 
-import static fm.jiecao.jcvideoplayer_lib.JCMediaManager.TAG;
+
 
 /**
  * Created by 魏正洋 on 2017/7/24.
@@ -57,7 +57,7 @@ public class YuanChuangAdapter extends BaseAdapter {
             holder = (Holder) convertView.getTag();
         }
         YuanChuangbean.InteractiveBean habean = alist.get(position);
-        Log.e(TAG, habean.getTitle() + "");
+
         holder.mtext.setText(habean.getTitle());
         Glide.with(context).load(habean.getImage()).into(holder.mimage);
         return convertView;

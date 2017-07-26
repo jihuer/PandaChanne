@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.a12710.pandachannel.R;
 import com.example.a12710.pandachannel.activity.personal_info.Panda_image_video_Activity;
+import com.example.a12710.pandachannel.activity.personal_info.PersonInfoActivity;
 import com.example.a12710.pandachannel.base.BaseFragment;
 import com.example.a12710.pandachannel.model.bean.PandaBroadBean;
 import com.example.a12710.pandachannel.model.bean.PandaBroadTwoBean;
@@ -46,6 +47,7 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
             adapter.notifyDataSetChanged();
         }
     };
+    private ImageView imageView;
 
     @Override
     public void setPresenter(PandaReportContract.PandaReportPresenter pandaReportPresenter) {
@@ -94,9 +96,15 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
 
         recyclerView = (XRecyclerView) view.findViewById(R.id.panda_report_recyclerview);
 
-
-
         panda_report = (TextView) view.findViewById(R.id.toobar_panda_title);
+        imageView = (ImageView) view.findViewById(R.id.toobar_sign);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PersonInfoActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -156,6 +164,8 @@ public class PandaReportFragment extends BaseFragment implements PandaReportCont
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Panda_image_video_Activity.class);
+                Log.e("TAG----",list.get(0).getUrl());
+                intent.putExtra("url",list.get(0).getUrl());
                 getActivity().startActivity(intent);
             }
         });

@@ -8,4 +8,5 @@ package com.example.a12710.pandachannel.model.bean;
  */
 
 public class BaDaLingBean {
+
 }

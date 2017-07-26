@@ -10,6 +10,8 @@ import com.example.a12710.pandachannel.base.BaseFragment;
  */
 
 public class ShouCang_ZhiBoFragment extends BaseFragment {
+
+
     @Override
     protected void initData() {
 

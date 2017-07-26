@@ -48,12 +48,7 @@
         </activity>
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5976e295f29d982746001184">
-        </meta-data>
-        <meta-data
-            android:name="UMENG_MESSAGE_SECRET"
-            android:value="d02af78d3ac1567e03d5b2e692a1cd05">
-        </meta-data>
+            android:value="59715e07c62dca2cd5000e12" />
 
         <activity android:name=".activity.Panda_Report_InfoActivity" />
         <activity android:name=".activity.personal_info.PersonInfoActivity" />
@@ -62,6 +57,10 @@
         <activity android:name=".activity.personal_info.SettingActivity" />
         <activity android:name=".activity.personal_info.ShouCangActivity" />
         <activity android:name=".activity.personal_info.HistoryActivity" />
+        <activity android:name=".activity.personal_info.Panda_image_video_Activity"
+            android:screenOrientation="landscape">
+
+        </activity>
         <activity
             android:name=".activity.personal_info.Panda_image_video_Activity"
             android:screenOrientation="landscape"></activity>
@@ -99,9 +98,11 @@
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+
 
     </application>
 

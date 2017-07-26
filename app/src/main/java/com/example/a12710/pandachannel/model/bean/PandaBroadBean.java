@@ -1,5 +1,7 @@
 package com.example.a12710.pandachannel.model.bean;
 
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +10,8 @@ import java.util.List;
  * 作 者：T
  * 微信：704003376
  */
-public class PandaBroadBean {
+
+public class PandaBroadBean implements Serializable{
 
 
     /**
@@ -35,7 +38,8 @@ public class PandaBroadBean {
         this.list = list;
     }
 
-    public static class ListBean {
+
+    public static class ListBean implements Serializable {
         /**
          * num : 1
          * datatype : article
@@ -49,6 +53,7 @@ public class PandaBroadBean {
          * url : http://news.ipanda.com/2017/07/20/ARTI83fVetdV7IE3UOUTG8ia170720.shtml
          * focus_date : 1500515268000
          */
+
 
         private int num;
         private String datatype;

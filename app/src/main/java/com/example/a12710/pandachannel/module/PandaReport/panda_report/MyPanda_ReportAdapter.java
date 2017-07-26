@@ -56,19 +56,13 @@ public class MyPanda_ReportAdapter extends RecyclerView.Adapter<MyPanda_ReportAd
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, Panda_Report_InfoActivity.class);
+                    i.putExtra("url",listBeen.get(0).getUrl());
                     i.putExtra("position",position);
-                    i.putExtra("report_img",listBeen.get(position).getPicurl());
-                    i.putExtra("report_title",listBeen.get(position).getTitle());
-                    i.putExtra("time",replace1.toString());
-                    i.putExtra("url",listBeen.get(position).getUrl());
+                    i.putExtra("list",listBeen);
                     context.startActivity(i);
 
                 }
             });
-
-
-
-
     }
 
 
