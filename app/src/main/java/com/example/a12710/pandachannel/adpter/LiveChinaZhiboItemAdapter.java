@@ -166,6 +166,7 @@ public class LiveChinaZhiboItemAdapter extends RecyclerView.Adapter<LiveChinaZhi
             jiazai = (ImageView) itemView.findViewById(R.id.lc_fi_jiazai);
             videoview_top = (VideoView) itemView.findViewById(R.id.lc_videoview);
             linview = (LinearLayout) itemView.findViewById(R.id.lc_fi_view);
+
         }
     }
 
