@@ -2,7 +2,6 @@ package com.example.a12710.pandachannel.module.live_china.live_china_content;
 
 import com.example.a12710.pandachannel.model.PandaChannelModelImp;
 import com.example.a12710.pandachannel.model.bean.LiveChinaContentBean;
-import com.example.a12710.pandachannel.module.live_china.live_china_content.LiveChinaContract;
 import com.example.a12710.pandachannel.network.MyCallBack;
 
 /**
