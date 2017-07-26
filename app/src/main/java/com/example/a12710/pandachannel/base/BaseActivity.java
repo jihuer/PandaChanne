@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.a12710.pandachannel.global.MyApp;
+import com.umeng.message.PushAgent;
 
 import butterknife.ButterKnife;
 import io.vov.vitamio.Vitamio;
@@ -23,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Vitamio.isInitialized(this);
         setContentView(getActivityLayoutId());
+        PushAgent.getInstance(this).onAppStart();
         MyApp.mContext=this;
         ButterKnife.bind(this);
         initView();
